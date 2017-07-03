@@ -2,15 +2,11 @@
 
 .my-header
   background: white
-  padding: 50px 0 20px 0
+  padding-top: 20px
   text-align: center
   @media #{$medium}
     text-align: left
 
-.cos
-  position: absolute
-  left: 50px
-  top: 20px
 
 .first-row
   margin-bottom: 20px
@@ -24,6 +20,7 @@
     margin-bottom: 0
 
 .btn-circle
+  cursor: pointer
   height: 26px
   width: 26px
   padding: 0
@@ -42,9 +39,9 @@
   .checkboxes
     @media #{$medium}
       text-align: right
-  .sort-by
+  .right-text
     font-style: italic
-    .sort-by-link
+    .right-text-link
       font-style: normal
       font-weight: 600
       padding: 7px
@@ -59,11 +56,15 @@
       color: grey
       text-decoration: underline
       font-style: normal
-    @media #{$small}
+    @media #{$medium}
       text-align: right
+  .second-view
+    @media #{$medium}
+      float: right
 
 .search
   width: 100%
+  margin-bottom: 10px
 
 #search-input
   border-radius: 0

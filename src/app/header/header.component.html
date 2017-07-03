@@ -30,25 +30,29 @@
             </div>
           </div>
 
-          <div class="col-12 col-sm-6 col-md-5 col-xl-3 sort-by">
+          <div class="col-12 col-sm-6 col-md-5 col-xl-3 right-text">
             Sort by:
-            <span class="sort-by-link" (click)="sortBySelected='recent'"
+            <span class="right-text-link" (click)="sortBySelected='recent'"
                   [ngClass]="{'not-selected': sortBySelected!=='recent', 'selected': sortBySelected==='recent'}">recent</span>
             or
-            <span class="sort-by-link" (click)="sortBySelected='hot'"
+            <span class="right-text-link" (click)="sortBySelected='hot'"
                   [ngClass]="{'not-selected': sortBySelected!=='hot', 'selected': sortBySelected==='hot'}">hot</span>
           </div>
         </div> <!-- /row -->
 
-        <div class="row" [hidden]="firstView">
-          hehehehe
+        <div class="row right-text" [hidden]="firstView">
+          <div class="col-12">
+            Last time discussed
+            <span class="right-text-link selected">1</span>
+            day ago
+          </div>
         </div>
       </div>
 
     </div> <!-- /row -->
 
     <!-- Second row-->
-    <div class="row">
+    <div class="row" [hidden]="!firstView">
       <div class="search">
 
         <form class="input-group">
