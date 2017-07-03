@@ -1,0 +1,78 @@
+@import '../_helpers/variables'
+
+.my-header
+  background: white
+  padding: 50px 0 20px 0
+  text-align: center
+  @media #{$medium}
+    text-align: left
+
+.cos
+  position: absolute
+  left: 50px
+  top: 20px
+
+.first-row
+  margin-bottom: 20px
+
+.header-title
+  text-transform: uppercase
+  font-size: 1.5rem
+  font-weight: 700
+  margin-bottom: 20px
+  @media #{$medium}
+    margin-bottom: 0
+
+.btn-circle
+  height: 26px
+  width: 26px
+  padding: 0
+  border-radius: 50%
+  margin-top: -5px
+  margin-left: 20px
+
+.header-options
+  margin: auto 0
+  div[class*="col-"]
+    padding: 0
+  label
+    margin-right: 20px
+    &:last-child
+      margin-right: 0
+  .checkboxes
+    @media #{$medium}
+      text-align: right
+  .sort-by
+    font-style: italic
+    .sort-by-link
+      font-style: normal
+      font-weight: 600
+      padding: 7px
+      cursor: pointer
+      &:last-child
+        padding-right: 0
+      &:hover
+        text-decoration: underline
+    .not-selected
+      color: $bootstrap-primary-color
+    .selected
+      color: grey
+      text-decoration: underline
+      font-style: normal
+    @media #{$small}
+      text-align: right
+
+.search
+  width: 100%
+
+#search-input
+  border-radius: 0
+  background-color: $background-color
+
+.my-search-button
+  border-radius: 0
+  text-transform: uppercase
+  margin-left: 20px
+  font-weight: 600
+  @media #{$medium}
+    padding: 0 50px

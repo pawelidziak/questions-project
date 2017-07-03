@@ -1,0 +1,62 @@
+<nav class="navbar sticky-top my-header">
+  <div class="container">
+
+    <!-- First row -->
+    <div class="row first-row">
+
+      <div class="col-12 col-md-4">
+        <div class="header-title">
+          questions
+          <button class="btn btn-sm btn-primary btn-circle">
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8 header-options">
+        <div class="row" [hidden]="!firstView">
+
+          <div class="col-12 col-sm-6 col-md-7 col-xl-9 checkboxes">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                       checked>
+                My shelf
+              </label>
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                All questions
+              </label>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-5 col-xl-3 sort-by">
+            Sort by:
+            <span class="sort-by-link" (click)="sortBySelected='recent'"
+                  [ngClass]="{'not-selected': sortBySelected!=='recent', 'selected': sortBySelected==='recent'}">recent</span>
+            or
+            <span class="sort-by-link" (click)="sortBySelected='hot'"
+                  [ngClass]="{'not-selected': sortBySelected!=='hot', 'selected': sortBySelected==='hot'}">hot</span>
+          </div>
+        </div> <!-- /row -->
+
+        <div class="row" [hidden]="firstView">
+          hehehehe
+        </div>
+      </div>
+
+    </div> <!-- /row -->
+
+    <!-- Second row-->
+    <div class="row">
+      <div class="search">
+
+        <form class="input-group">
+          <input type="text" class="form-control" id="search-input" placeholder="Search questions">
+          <button type="submit" class="btn btn-outline-secondary my-search-button">search</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</nav>
