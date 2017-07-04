@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IUser} from '../_classes/User';
+import {IQuestion} from '../_classes/Question';
 
 @Component({
   selector: 'app-single-question',
@@ -6,6 +8,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./single-question.component.sass']
 })
 export class SingleQuestionComponent implements OnInit {
+
+  @Input('question') question: IQuestion;
 
   answersArray: any;
   answersArrayForLarge: any;
@@ -15,22 +19,21 @@ export class SingleQuestionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.answersArray = ['commented', 'commented', 'commented', 'commented'];
-    this.answersArrayForLarge = [];
+    this.answersArray = this.question.answers;
     this.moreActivities = this.answersArray.length;
-
     this.filterAnswerArray();
     this.calculateLessActivities(window.innerWidth);
   }
 
   filterAnswerArray(): void {
+    this.answersArrayForLarge = [];
     if (this.answersArray.length >= 4) {
       for (let i = this.answersArray.length - 4; i < this.answersArray.length; i++) {
         this.answersArrayForLarge.push(this.answersArray[i]);
       }
-      console.log(this.answersArrayForLarge);
     } else {
       this.answersArrayForLarge = this.answersArray;
+      console.log(this.answersArrayForLarge);
     }
   }
 
