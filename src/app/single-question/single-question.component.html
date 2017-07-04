@@ -19,7 +19,7 @@
     </div>
 
     <div class="row">
-      <div class="col-8 single-question-answers">
+      <div class="col-8 single-question-response">
 
         <div class="row">
 
@@ -37,37 +37,16 @@
             </div>
           </div>
 
-
-          <!--&lt;!&ndash; For small devices &ndash;&gt;-->
-          <!--<div class="col-6 col-sm-4 hidden-lg-up">-->
-          <!--<div class="small-card normal">-->
-          <!--<div class="small-card-content">-->
-          <!--<app-profile-modal [user]="answersArray[answersArray.length-1]"></app-profile-modal>-->
-          <!--<div class="footer line">{{answersArray[answersArray.length-1].type}}</div>-->
-          <!--<div class="my-dot commented"></div>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--&lt;!&ndash; For large devices&ndash;&gt;-->
-          <!--<div class="col-lg-2 hidden-md-down" *ngFor="let answer of answersArrayForLarge">-->
-          <!--<div class="small-card normal">-->
-          <!--<div class="small-card-content" style="">-->
-          <!--<app-profile-modal [user]="answer"></app-profile-modal>-->
-          <!--<div class="footer line">{{answer.type}}</div>-->
-          <!--<div class="my-dot commented"></div>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
           <!-- For large devices-->
-          <div class="col-lg-2" *ngFor="let answer of answersArrayForLarge; let i=index"
+          <div class="col-lg-2" *ngFor="let answer of responseArrayForDisplay; let i=index"
                [ngClass]="{'col-6 col-sm-4': i === 0, 'hidden-md-down': i > 0}">
             <div class="small-card normal">
               <div class="small-card-content" style="">
                 <app-profile-modal [user]="answer.answerAuthor"></app-profile-modal>
                 <div class="footer line">{{answer.type}}</div>
-                <div class="my-dot commented"></div>
+                <div class="my-dot"
+                     [ngClass]="{'answered': answer.type === 'answered', 'commented': answer.type === 'commented'}">
+                </div>
               </div>
             </div>
           </div>

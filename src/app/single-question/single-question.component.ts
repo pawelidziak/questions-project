@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IUser} from '../_classes/User';
 import {IQuestion} from '../_classes/Question';
 
 @Component({
@@ -11,42 +10,44 @@ export class SingleQuestionComponent implements OnInit {
 
   @Input('question') question: IQuestion;
 
-  answersArray: any;
-  answersArrayForLarge: any;
+  responsesArray: any;
+  responseArrayForDisplay: any;
   moreActivities: number;
 
   constructor() {
   }
 
-  ngOnInit() {
-    this.answersArray = this.question.answers;
-    this.moreActivities = this.answersArray.length;
-    this.filterAnswerArray();
-    this.calculateLessActivities(window.innerWidth);
-  }
-
-  filterAnswerArray(): void {
-    this.answersArrayForLarge = [];
-    if (this.answersArray.length >= 4) {
-      for (let i = this.answersArray.length - 4; i < this.answersArray.length; i++) {
-        this.answersArrayForLarge.push(this.answersArray[i]);
+  // method takes last 4 answers and add it to new array
+  private filterResponseArray(): void {
+    this.responseArrayForDisplay = [];
+    if (this.responsesArray.length >= 4) {
+      for (let i = this.responsesArray.length - 4; i < this.responsesArray.length; i++) {
+        this.responseArrayForDisplay.push(this.responsesArray[i]);
       }
     } else {
-      this.answersArrayForLarge = this.answersArray;
-      console.log(this.answersArrayForLarge);
+      this.responseArrayForDisplay = this.responsesArray;
     }
   }
 
-  calculateLessActivities(width: number): void {
+  // method calculates how many responses are left
+  private calcLeftResponses(width: number): void {
     const changeWhen = 992;
     if (width < changeWhen) {
-      this.moreActivities = this.answersArray.length - 1;
+      this.moreActivities = this.responsesArray.length - 1;
     } else {
-      this.moreActivities = this.answersArray.length - this.answersArrayForLarge.length;
+      this.moreActivities = this.responsesArray.length - this.responseArrayForDisplay.length;
     }
   }
 
   onResize(event: any) {
-    this.calculateLessActivities(event.target.innerWidth);
+    this.calcLeftResponses(event.target.innerWidth);
   }
+
+  ngOnInit() {
+    this.responsesArray = this.question.answers;
+    this.moreActivities = this.responsesArray.length;
+    this.filterResponseArray();
+    this.calcLeftResponses(window.innerWidth);
+  }
+
 }
