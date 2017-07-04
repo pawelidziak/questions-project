@@ -8,7 +8,8 @@
       "peers": 5,
       "discussions": 6,
       "findings": 7,
-      "questions": 8
+      "questions": 8,
+      "avatarUrl": "assets/avatars/1.png"
     },
     "answers": [
       {
@@ -20,7 +21,8 @@
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/2.png"
         }
       },
       {
@@ -32,7 +34,8 @@
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/1.png"
         }
       },
       {
@@ -44,19 +47,21 @@
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/3.png"
         }
       },
       {
         "type": "answered",
         "answerAuthor": {
-          "name": "Ania",
+          "name": "Mateusz",
           "memberFor": "22.10.2017",
           "lastSeen": "22.10.2017",
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/5.png"
         }
       },
       {
@@ -68,7 +73,8 @@
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/3.png"
         }
       }
     ]
@@ -82,7 +88,8 @@
       "peers": 5,
       "discussions": 6,
       "findings": 7,
-      "questions": 8
+      "questions": 8,
+      "avatarUrl": "assets/avatars/4.png"
     },
     "answers": [
       {
@@ -94,7 +101,8 @@
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/2.png"
         }
       },
       {
@@ -106,7 +114,8 @@
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/1.png"
         }
       },
       {
@@ -118,7 +127,8 @@
           "peers": 5,
           "discussions": 6,
           "findings": 7,
-          "questions": 8
+          "questions": 8,
+          "avatarUrl": "assets/avatars/3.png"
         }
       }
     ]

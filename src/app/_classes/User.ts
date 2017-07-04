@@ -9,4 +9,5 @@ export interface IUser {
   discussions: number;
   findings: number;
   questions: number;
+  avatarUrl: string;
 }

@@ -1,24 +1,24 @@
-@import '../_helpers/variables'
+@import '../../_helpers/variables'
 
 .my-card
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+  box-shadow: 0 1px 3px rgba(0,0,0,0.24)
   background: #fff
   margin-top: 30px
   padding-bottom: 50px
+  color: $primary-text-color-dark
 
 .row
   margin: 0
 
 .single-question-header
   background: $accent-color
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+  box-shadow: 0 1px 3px rgba(0,0,0,0.24)
   padding: 15px 24px
-
+  color: $bootstrap-primary-color
   .header-title
     overflow: hidden
     padding-left: 35px
     .author
-      color: $primary-text-color
       font-size: 1.1rem
       cursor: pointer
       &:hover
@@ -27,11 +27,10 @@
       margin-left: 10px
       font-size: 0.8rem
       text-transform: uppercase
-      color: $secondary-text-color
+      color: $primary-text-color-dark
     .question
       margin-top: 10px
       display: block
-      color: $primary-text-color
       font-style: italic
       font-size: 1.2rem
 
@@ -46,15 +45,15 @@
 
 
 .small-card
-  box-shadow: 1px 2px 3px lighten(black, 70%)
+  box-shadow: 0 2.5px 3px rgba(0,0,0,0.24)
   height: 100%
-  color: $primary-text-color-dark
   &.first
     background: $accent-color
-    color: $primary-text-color
     margin-left: -5px
-    margin-top: -53px
-    height: 130%
+    > div
+      margin-left: -5px
+    margin-top: -50px
+    height: 128%
   &.second
     padding-top: 35px
     font-weight: 700

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IQuestion} from '../_classes/Question';
+import {IQuestion} from '../../_classes/Question';
 
 @Component({
   selector: 'app-single-question',
