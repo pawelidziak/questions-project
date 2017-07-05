@@ -1,8 +1,16 @@
+@import '../_helpers/variables'
 
 #closeButton
   position: absolute
   right: 20px
   top: 20px
+
+.modal-content
+  border-radius: 0
+  min-width: 800px
+  margin-left: -150px
+  color: $primary-text-color-dark
+  padding: 0 50px
 
 .modal-body
   margin-top: 50px
@@ -22,3 +30,84 @@
   &:hover
     transform: scale(1.2)
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+  &.no-hover
+    cursor: default
+    &:hover
+      transform: none
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+  &.big
+    width: 80px
+    height: 80px
+
+.user-name
+  padding: 10px 0
+  font-size: 1.5rem
+  text-align: center
+  color: $bootstrap-primary-color
+
+.header-text
+  text-transform: uppercase
+  font-size: 0.9rem
+  margin-right: 7px
+
+.header-response
+  font-size: 0.9rem
+  color: black
+
+.my-hr
+  margin-top: 1rem
+  margin-bottom: 1rem
+  border: 0
+  border-top: 1px solid rgba(0, 0, 0, 0.1)
+
+.modal-my-content
+  text-align: center
+  .title
+    margin-top: 20px
+    font-style: italic
+    font-weight: 700
+  .subtitle
+    margin-top: 30px
+    text-transform: uppercase
+    font-size: 0.9rem
+  .stats
+    margin-top: 40px
+  .diamond
+    height: 150px
+    width: 150px
+    background-color: #7FDBFF
+    transform: rotate(45deg)
+    z-index: 999
+    opacity: 0.5
+  .cos
+    z-index: 1000
+
+// funny background
+.outer
+  display: table
+  width: 90px
+  height: 90px
+  background-color: $accent-color
+  &.rot50
+    transform: rotate(50deg)
+  &.rot-n-10
+    transform: rotate(-10deg)
+  &.rot10
+    transform: rotate(10deg)
+
+.middle
+  display: table-cell
+  vertical-align: middle
+
+.inner
+  .stat-res
+    font-weight: 700
+    font-size: 1.2rem
+  .stat-text
+    font-style: italic
+  &.rot50
+    transform: rotate(-50deg)
+  &.rot-n-10
+    transform: rotate(10deg)
+  &.rot10
+    transform: rotate(-10deg)

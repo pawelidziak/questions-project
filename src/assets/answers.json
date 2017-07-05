@@ -44,10 +44,10 @@
           "name": "Beata",
           "memberFor": "22.10.2017",
           "lastSeen": "22.10.2017",
-          "peers": 5,
-          "discussions": 6,
-          "findings": 7,
-          "questions": 8,
+          "peers": 123,
+          "discussions": 165,
+          "findings": 999,
+          "questions": 185,
           "avatarUrl": "assets/avatars/3.png"
         }
       },
