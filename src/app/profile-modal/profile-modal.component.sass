@@ -18,9 +18,12 @@
 
 .avatar
   float: left
-  //margin-right: 30px
   margin-top: 10px
 
+
+.image
+  text-align: center
+  display: block
 .avatar-image
   width: 50px
   height: 50px
@@ -63,27 +66,31 @@
 .modal-my-content
   text-align: center
   .title
-    margin-top: 20px
     font-style: italic
     font-weight: 700
   .subtitle
     margin-top: 30px
     text-transform: uppercase
     font-size: 0.9rem
-  .stats
-    margin-top: 40px
-  .diamond
-    height: 150px
-    width: 150px
-    background-color: #7FDBFF
-    transform: rotate(45deg)
-    z-index: 999
-    opacity: 0.5
-  .cos
-    z-index: 1000
+
+.stats
+  margin-top: 40px
+
+.header
+  text-align: center
+  margin: -20px 0 10px 0
+  .title
+    font-style: italic
+    font-weight: 700
+  .subtitle
+    text-transform: uppercase
+    font-size: 0.9rem
+
 
 // funny background
 .outer
+  //width: 40%
+  margin: 0 20px
   display: table
   width: 90px
   height: 90px
@@ -111,3 +118,21 @@
     transform: rotate(10deg)
   &.rot10
     transform: rotate(-10deg)
+
+.stats-boxes
+  margin: 50px 0
+  padding: 0 100px
+
+.relationships-boxes
+  padding: 0 180px
+  text-align: center
+
+.pattern
+  color: white
+  width: 100px
+  height: 100px
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, #F0F0F0 2px, #F0F0F0 4px)

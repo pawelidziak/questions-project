@@ -18,7 +18,7 @@ export class QuestionsService {
 
   getQuestions(): Observable<IQuestion[]> {
     return this._http
-      .get('././assets/answers.json')
+      .get('././assets/questions.json')
       .map((response: Response) => <IQuestion[]> response.json())
       .catch(this.handleError);
   }

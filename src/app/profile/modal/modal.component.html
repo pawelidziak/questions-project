@@ -1,0 +1,170 @@
+<section class="my-modal">
+
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()" id="closeButton">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-body">
+
+    <div class="image">
+      <img data-toggle="modal" [attr.data-target]="'#' + user.name.toLowerCase()" [src]="user.avatarUrl"
+           class="rounded-circle avatar-image no-hover big">
+    </div>
+
+    <div class="my-header">
+
+      <div class="row">
+        <div class="col-12 accent-text big">{{user.name}}</div>
+      </div>
+
+      <div class="row my-header-boxes">
+        <div class="col-12 col-lg-4">
+          <span class="header-text">member for</span>
+          <span class="header-response">5 months</span>
+        </div>
+        <div class="col-12 col-lg-4">
+          <span class="header-text">last seen</span>
+          <span class="header-response"> Saturday afternoon</span>
+        </div>
+        <div class="col-12 col-lg-4">
+          <span class="header-text">activity level</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-hr"></div>
+
+    <div class="modal-my-content">
+
+
+      <div class="stats">
+
+        <div class="row header">
+          <div class="col-12">
+            <h2 class="title">How it all started</h2>
+            <div class="subtitle">that's where we have been these 5 months ago</div>
+          </div>
+        </div>
+
+        <div class="row stats-boxes">
+
+          <div class="col-6 col-lg-3">
+            <div class="outer rot50">
+              <div class="middle">
+                <div class="inner rot50">
+                  <div class="stat-res">{{user.peers}}</div>
+                  <div class="stat-text">peers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="outer rot-n-10">
+              <div class="middle">
+                <div class="inner rot-n-10">
+                  <div class="stat-res">{{user.discussions}}</div>
+                  <div class="stat-text">discussions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="outer rot50">
+              <div class="middle">
+                <div class="inner rot50">
+                  <div class="stat-res">{{user.findings}}</div>
+                  <div class="stat-text">findings</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="outer rot10">
+              <div class="middle">
+                <div class="inner rot10">
+                  <div class="stat-res">{{user.questions}}</div>
+                  <div class="stat-text">questions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- /stats -->
+
+      <div class="relationships">
+        <div class="row header ">
+          <div class="col-12">
+            <div class="subtitle">who joined the platform that same period</div>
+          </div>
+        </div>
+
+        <div class="row relationships-boxes">
+          <div class="col-4">
+            <div class="pattern-box">
+              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
+            </div>
+            <div class="accent-text">ktos</div>
+          </div>
+          <div class="col-4">
+            <div class="pattern-box">
+              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
+            </div>
+            <div class="accent-text">ktos</div>
+          </div>
+          <div class="col-4">
+            <div class="pattern-box">
+              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
+            </div>
+            <div class="accent-text">ktos</div>
+          </div>
+        </div>
+
+      </div> <!-- /relationships-->
+
+      <div class="hottest-discussion">
+        <div class="row header ">
+          <div class="col-12">
+            <div class="subtitle">the hottest discussion these days</div>
+          </div>
+        </div>
+
+        <div class="row hottest-discussion-boxes">
+          <div class="col-12 ">
+            <div class="avatar">
+              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
+            </div>
+
+            <div class="info">
+              <span class="accent-text my-link">Andrew</span>
+              <span class="normal-text">found the guardian article</span>
+            </div>
+            <div class="accent-text my-link">
+              Vegan diet to stop diabetes progress
+            </div>
+
+            <div class="row more">
+              <div class="col-6 col-lg-3">
+                <div class="one-info"><span>123</span> peers involved</div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="one-info"><span>111</span> related discussion</div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="one-info"><span>155</span> conversations</div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="one-info"><span>153</span> upvotes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /hottest-discussion -->
+
+    </div> <!-- /modal-my-content -->
+
+  </div>
+
+</section>

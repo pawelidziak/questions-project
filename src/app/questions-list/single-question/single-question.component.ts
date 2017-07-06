@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IQuestion} from '../../_classes/Question';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalComponent} from "../../profile/modal/modal.component";
+import {IUser} from "../../_classes/User";
 
 @Component({
   selector: 'app-single-question',
@@ -14,7 +17,14 @@ export class SingleQuestionComponent implements OnInit {
   responseArrayForDisplay: any;
   moreActivities: number;
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
+  }
+
+  openProfileModal(user: IUser) {
+    const modalRef = this.modalService.open(ModalComponent, {
+      size: 'lg'
+    });
+    modalRef.componentInstance.user = user;
   }
 
   // method takes last 4 answers and add it to new array

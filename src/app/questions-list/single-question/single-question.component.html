@@ -4,10 +4,10 @@
     <div class="row">
       <div class="col-12 col-lg-8 single-question-header">
 
-        <app-profile-modal [user]="question.author"></app-profile-modal>
+        <app-profile [user]="question.author"></app-profile>
 
         <div class="header-title">
-          <a data-toggle="modal" [attr.data-target]="'#' + question.author.name.toLowerCase()" class="author">
+          <a data-toggle="modal" (click)="open(question.author)" class="author">
             {{question.author.name}}
           </a>
           <span class="subtitle">is asking:</span>
@@ -42,7 +42,7 @@
                [ngClass]="{'col-6 col-sm-4': i === 0, 'hidden-md-down': i > 0}">
             <div class="small-card normal">
               <div class="small-card-content" style="">
-                <app-profile-modal [user]="answer.answerAuthor"></app-profile-modal>
+                <app-profile [user]="answer.answerAuthor"></app-profile>
                 <div class="footer line">{{answer.type}}</div>
                 <div class="my-dot"
                      [ngClass]="{'answered': answer.type === 'answered', 'commented': answer.type === 'commented'}">
@@ -55,7 +55,7 @@
       </div>
 
       <div class="col-4 single-question-more">
-        <div style="">
+        <div class="more">
           <div class="one-info"><span>1</span> related discussion</div>
           <div class="one-info"><span>6</span> peers involved</div>
           <div class="one-info"><span>3</span> conversations</div>
@@ -64,5 +64,4 @@
     </div>
 
   </div>
-
 </section>
