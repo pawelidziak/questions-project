@@ -7,15 +7,14 @@
         <app-profile [user]="question.author"></app-profile>
 
         <div class="header-title">
-          <a (click)="openProfileModal(question.author)" class="author">
+          <span class="author my-link" (click)="openProfileModal(question.author)">
             {{question.author.name}}
-          </a>
+          </span>
           <span class="subtitle">is asking:</span>
 
-          <a class="question"
-             [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">
+          <span class="question my-link" [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">
             {{question.title}}
-          </a>
+          </span>
         </div>
       </div> <!-- /header -->
 
