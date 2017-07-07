@@ -9,8 +9,10 @@ import {QuestionsService} from './questions-list.service';
 import {ProfileModule} from '../profile/profile.module';
 import {RouterModule} from '@angular/router';
 import {QuestionDetailComponent} from './question-detail/question-detail.component';
+import {AbsolutePipe} from '../_helpers/absolute.pipe';
+
 @NgModule({
-  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent],
+  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AbsolutePipe],
   imports: [CommonModule, RouterModule, ProfileModule],
   exports: [QuestionsListComponent],
   providers: [QuestionsService],

@@ -1,11 +1,10 @@
 <section class="container" *ngIf="question">
   <div class="my-card">
-
     <div class="row">
       <div class="col-12 single-question-header">
 
         <div class="row">
-          <div class="col-10">
+          <div class="col-12 col-lg-10">
 
             <app-profile [user]="question.author"></app-profile>
 
@@ -14,21 +13,17 @@
                 {{question.author.name}}
               </a>
               <span class="subtitle">is asking:</span>
-
-              <a class="question">{{question.title}}</a>
             </div>
-
+            <a class="question">{{question.title}}</a>
           </div>
 
-          <div class="col-2 hidden-md-down">
+          <div class="col-lg-2 hidden-md-down">
             <div class="unfollow">
               unfollow
             </div>
           </div>
 
         </div>
-
-
       </div> <!-- /header -->
 
     </div>
@@ -38,18 +33,15 @@
 
         <div class="row">
 
-          <div class="col-lg-2 hidden-sm-down">
+          <div class="col-lg-1 hidden-sm-down">
             <div class="my-column">
-
             </div>
           </div>
 
-          <div class="col-12 col-lg-8">
-
-            <div class="response">
-              {{question.responses[0].text}}
+          <div class="col-12 col-lg-9">
+            <div class="question-text">
+              {{question.text}}
             </div>
-
           </div>
 
           <div class="col-12 col-lg-2">
@@ -58,21 +50,68 @@
                 unfollow
               </div>
               <div class="upvotes normal-text">
-                <span>1</span> upvotes
+                <span class="bold">{{question.votes}}</span>
+                <span>upvotes</span>
                 <div class="arrows">
                   <div class="arrow-top"></div>
                   <div class="arrow-bottom"></div>
                 </div>
               </div>
             </div>
-
-
           </div>
 
-        </div>
-      </div>
+        </div> <!-- /row -->
+        <div class="new-answer"><span>give</span> new answer</div>
 
+      </div>
+    </div><!-- /row -->
+
+  </div> <!-- /my-card -->
+
+
+  <div class="responses-content">
+    <div class="row">
+      <div class="col-12 response-info">
+        <span>{{answersArray.length}}</span> peers already answered Eva
+      </div>
     </div>
 
-  </div>
+    <div class="response" *ngFor="let response of answersArray">
+        <div class="row">
+          <div class="col-1 avatar">
+            <app-profile [user]="response.answerAuthor"></app-profile>
+          </div>
+
+          <div class="col-11">
+            <div class="response-header">
+              <span class="accent-text">{{response.answerAuthor.name}}</span>
+              <span class="subtitle">answered it &#8226;</span>
+              <span class="italic-text">yesterday</span>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-lg-10 response-text">
+                {{response.text}}
+              </div>
+              <div class="col-12 col-lg-2">
+
+                <div class="upvotes normal-text">
+                  <span class="bold">{{response.votes | absolutePipe}}</span>
+                  <span *ngIf="response.votes > 0 ">upvotes</span>
+                  <span *ngIf="response.votes < 0 ">downvotes</span>
+                  <div class="arrows">
+                    <div class="arrow-top"></div>
+                    <div class="arrow-bottom"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="comment"><span>comment</span></div>
+          </div>
+
+        </div> <!-- /row -->
+    </div> <!-- /response -->
+  </div> <!-- /responses-content -->
+
 </section>

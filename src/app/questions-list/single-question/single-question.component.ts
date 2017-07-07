@@ -54,7 +54,7 @@ export class SingleQuestionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.responsesArray = this.question.responses;
+    this.responsesArray = this.question.answers;
     this.moreActivities = this.responsesArray.length;
     this.filterResponseArray();
     this.calcLeftResponses(window.innerWidth);

@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
 import { QuestionsListModule } from './questions-list/questions-list.module';
-import {routing} from './app.routing';
-import {RouterModule} from '@angular/router';
+import { routing } from './app.routing';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

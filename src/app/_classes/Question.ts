@@ -2,11 +2,13 @@
  * Created by pawel.idziak on 04.07.2017.
  */
 import {IUser} from './User';
-import {IResponse} from './Response';
+import {IAnswer} from './Answer';
 
 export interface IQuestion {
   id: string;
   title: string;
   author: IUser;
-  responses: IResponse[]
+  text: string;
+  answers?: IAnswer[];
+  votes: number;
 }
