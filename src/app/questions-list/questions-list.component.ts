@@ -18,10 +18,6 @@ export class QuestionsListComponent implements OnInit {
 
   ngOnInit() {
     this.getQuestions();
-    // const user = new User('Piotr', new Date(), new Date(), 4, 5, 6, 7);
-    // const q = new Question(1, 'test', user);
-    // this.questions.push(q);
-    // console.log(this.questions);
   }
 
   getQuestions() {
