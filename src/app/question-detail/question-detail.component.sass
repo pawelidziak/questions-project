@@ -1,0 +1,133 @@
+@import '../_helpers/variables'
+
+.my-card
+  box-shadow: 0 1px 3px rgba(0,0,0,0.24)
+  background: #fff
+  margin-top: 30px
+  padding-bottom: 50px
+  color: $primary-text-color-dark
+
+.row
+  margin: 0
+
+.single-question-header
+  background: $accent-color
+  box-shadow: 0 1px 3px rgba(0,0,0,0.24)
+  padding: 15px 24px
+  color: $bootstrap-primary-color
+  .header-title
+    overflow: hidden
+    padding-left: 35px
+    .author
+      font-size: 1.1rem
+      cursor: pointer
+      &:hover
+        text-decoration: underline
+    .subtitle
+      margin-left: 10px
+      font-size: 0.8rem
+      text-transform: uppercase
+      color: $primary-text-color-dark
+    .question
+      margin-top: 10px
+      display: block
+      font-style: italic
+      font-size: 1.2rem
+
+// reset padding
+.single-question-response
+  text-align: center
+  padding: 0
+  > .row > div[class*="col-"]
+    padding: 5px 5px 0 5px
+    @media #{$medium}
+      padding: 50px 5px 0 5px
+
+
+.small-card
+  box-shadow: 0 2.5px 3px rgba(0,0,0,0.24)
+  height: 100%
+  &.first
+    background: $accent-color
+    margin-left: -5px
+    > div
+      margin-left: -5px
+    margin-top: -50px
+    height: 128%
+  &.second
+    padding-top: 35px
+    font-weight: 700
+  &.normal
+    background: darken($background-color, 5%)
+    padding: 0 10px
+  .small-card-content
+    display: flex
+    justify-content: center
+    margin-bottom: 100px
+    padding-top: 20px
+
+.footer
+  position: absolute
+  width: 70%
+  bottom: 15px
+  left: 50%
+  transform: translateX(-50%)
+  font-size: 0.9rem
+  font-style: italic
+  padding-top: 7px
+  &.line
+    border-top: 1px solid
+    text-transform: uppercase
+    font-size: 0.7rem
+    font-style: normal
+
+.my-dot
+  width: 16px
+  height: 16px
+  position: absolute
+  left: 50%
+  transform: translateX(calc(-50%))
+  bottom: -8px
+  border-radius: 50%
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+  &.commented
+    background: darken($background-color, 20%)
+  &.answered
+    background: darken($background-color, 80%)
+
+.single-question-more
+  font-size: 0.7rem
+  height: 100%
+  display: flex
+  justify-content: center
+  align-self: center
+  flex-direction: row
+  @media #{$medium}
+    font-size: 1rem
+  font-style: italic
+  .one-info
+    padding: 5px 0
+    &:first-child
+      padding-top: 0
+    span
+      font-weight: 700
+      font-size: 1.2rem
+      font-style: normal
+      @media #{$small}
+        margin-right: 10px
+
+// OTHERS ----------------------------------
+.accent-text
+  font-size: 1.1rem
+  color: $bootstrap-primary-color
+  &.big
+    font-size: 1.5rem
+
+.normal-text
+  font-size: 1rem
+  color: $primary-text-color-dark
+
+.my-link
+  cursor: pointer
+  &:hover
+    text-decoration: underline

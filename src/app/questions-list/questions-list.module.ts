@@ -7,9 +7,10 @@ import {QuestionsListComponent} from './questions-list.component';
 import {SingleQuestionComponent} from './single-question/single-question.component';
 import {QuestionsService} from './questions-list.service';
 import {ProfileModule} from '../profile/profile.module';
+import {RouterModule} from '@angular/router';
 @NgModule({
   declarations: [QuestionsListComponent, SingleQuestionComponent],
-  imports: [CommonModule, ProfileModule],
+  imports: [CommonModule, RouterModule, ProfileModule],
   exports: [QuestionsListComponent],
   providers: [QuestionsService],
 
