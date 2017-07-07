@@ -11,7 +11,7 @@
       "questions": 8,
       "avatarUrl": "assets/avatars/1.png"
     },
-    "answers": [
+    "responses": [
       {
         "type": "commented",
         "answerAuthor": {
@@ -23,7 +23,8 @@
           "findings": 7,
           "questions": 8,
           "avatarUrl": "assets/avatars/2.png"
-        }
+        },
+        "text": "Example comment"
       },
       {
         "type": "commented",
@@ -36,7 +37,8 @@
           "findings": 7,
           "questions": 8,
           "avatarUrl": "assets/avatars/1.png"
-        }
+        },
+        "text": "Example comment"
       },
       {
         "type": "commented",
@@ -49,7 +51,8 @@
           "findings": 999,
           "questions": 185,
           "avatarUrl": "assets/avatars/3.png"
-        }
+        },
+        "text": "Example comment"
       },
       {
         "type": "answered",
@@ -62,7 +65,8 @@
           "findings": 7,
           "questions": 8,
           "avatarUrl": "assets/avatars/5.png"
-        }
+        },
+        "text": "Example answer"
       },
       {
         "type": "answered",
@@ -75,7 +79,8 @@
           "findings": 7,
           "questions": 8,
           "avatarUrl": "assets/avatars/3.png"
-        }
+        },
+        "text": "Example answer"
       }
     ]
   },
@@ -91,7 +96,7 @@
       "questions": 8,
       "avatarUrl": "assets/avatars/4.png"
     },
-    "answers": [
+    "responses": [
       {
         "type": "commented",
         "answerAuthor": {
@@ -103,7 +108,8 @@
           "findings": 7,
           "questions": 8,
           "avatarUrl": "assets/avatars/2.png"
-        }
+        },
+        "text": "Example comment"
       },
       {
         "type": "answered",
@@ -116,7 +122,8 @@
           "findings": 7,
           "questions": 8,
           "avatarUrl": "assets/avatars/1.png"
-        }
+        },
+        "text": "Example answer"
       },
       {
         "type": "commented",
@@ -129,7 +136,8 @@
           "findings": 7,
           "questions": 8,
           "avatarUrl": "assets/avatars/3.png"
-        }
+        },
+        "text": "Example comment"
       }
     ]
   }

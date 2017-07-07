@@ -3,7 +3,8 @@
  */
 import {IUser} from './User';
 
-export interface IAnswer {
+export interface IResponse {
   type: string;
   answerAuthor: IUser;
+  text: string;
 }

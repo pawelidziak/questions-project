@@ -7,7 +7,7 @@
         <app-profile [user]="question.author"></app-profile>
 
         <div class="header-title">
-          <a data-toggle="modal" (click)="open(question.author)" class="author">
+          <a (click)="openProfileModal(question.author)" class="author">
             {{question.author.name}}
           </a>
           <span class="subtitle">is asking:</span>
