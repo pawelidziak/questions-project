@@ -7,4 +7,5 @@ export interface IComment {
   answerAuthor: IUser;
   text: string;
   votes: number;
+  date: Date;
 }

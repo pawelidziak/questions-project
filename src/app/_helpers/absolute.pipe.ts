@@ -8,8 +8,11 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class AbsolutePipe implements PipeTransform {
   transform(input: number) {
-    if (input) {
-      return Math.abs(input);
+
+    if (input === 0) {
+      return input;
     }
+    return Math.abs(input);
+
   }
 }

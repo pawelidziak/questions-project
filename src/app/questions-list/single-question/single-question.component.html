@@ -2,7 +2,7 @@
   <div class=" my-card">
 
     <div class="row">
-      <div class="col-12 col-lg-8 single-question-header">
+      <div class="col-12 col-lg-8 card-header">
 
         <app-profile [user]="question.author"></app-profile>
 
@@ -22,11 +22,11 @@
     </div>
 
     <div class="row">
-      <div class="col-8 single-question-response">
+      <div class="col-8 answers">
 
         <div class="row">
 
-          <div class="col-6 col-sm-4 col-lg-2 hidden-sm-down">
+          <div class="col-md-2 hidden-md-down">
             <div class="small-card first">
               <div class="footer line">asked</div>
             </div>
@@ -40,15 +40,13 @@
             </div>
           </div>
 
-          <!-- For large devices-->
-          <div class="col-lg-2" *ngFor="let answer of responseArrayForDisplay; let i=index"
-               [ngClass]="{'col-6 col-sm-4': i === 0, 'hidden-md-down': i > 0}">
+          <div class="col-6 col-sm-4 col-lg-2" *ngFor="let answer of responseArrayForDisplay; let i=index"
+               [ngClass]="{'hidden-xs-down': i === 1, 'hidden-md-down': i > 1}">
             <div class="small-card normal">
-              <div class="small-card-content" style="">
+              <div class="small-card-content">
                 <app-profile [user]="answer.answerAuthor"></app-profile>
-                <div class="footer line">{{answer.type}}</div>
-                <div class="my-dot"
-                     [ngClass]="{'answered': answer.type === 'answered', 'commented': answer.type === 'commented'}">
+                <div class="footer line">answered</div>
+                <div class="my-dot answered">
                 </div>
               </div>
             </div>
@@ -59,9 +57,9 @@
 
       <div class="col-4 single-question-more">
         <div class="more">
-          <div class="one-info"><span>1</span> related discussion</div>
-          <div class="one-info"><span>6</span> peers involved</div>
-          <div class="one-info"><span>3</span> conversations</div>
+          <div class="one-info"><span>{{question.related}}</span> related discussion</div>
+          <div class="one-info"><span>{{question.peers}}</span> peers involved</div>
+          <div class="one-info"><span>{{question.conversations}}</span> conversations</div>
         </div>
       </div>
     </div>

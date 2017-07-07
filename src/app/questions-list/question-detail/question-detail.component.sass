@@ -4,70 +4,73 @@
   box-shadow: 0 1px 3px $box-shadow-color
   background: #fff
   margin-top: 30px
-  color: $primary-text-color-dark
 
-
+.card-header
+  background: $accent-color
+  .row > div[class*="col-"]
+    padding: 0 0 0 10px
 .row
   margin: 0
 
-// HEADER ------------------------------------------------
-.single-question-header
+// HEADER ------------------------------------------------------------------------------------
+.card-header
   background: $accent-color
   box-shadow: 0 1px 3px $box-shadow-color
   padding: 15px 8px
+.header-title
+  margin-top: 20px
   color: $bootstrap-primary-color
-  .header-title
-    overflow: hidden
-    padding-left: 35px
-    display: block
-    .author
-      font-size: 1.1rem
-      cursor: pointer
-      &:hover
-        text-decoration: underline
-    .subtitle
-      margin-left: 10px
-      font-size: 0.8rem
-      text-transform: uppercase
-      color: $primary-text-color-dark
+  overflow: hidden
+  padding-left: 35px
+  @media #{$medium}
+    margin-top: 0
+
+.author
+  font-size: 1.1rem
+  cursor: pointer
+  &:hover
+    text-decoration: underline
+
+.subtitle
+  margin-left: 10px
+  font-size: 0.8rem
+  text-transform: uppercase
+  color: $primary-text-color-dark
 
 .question
-  margin-top: 50px
-  @media #{$small}
+  color: $bootstrap-primary-color !important
+  text-align: center
+  margin-top: 25px
+  @media #{$medium}
     margin-top: 10px
     margin-left: 85px
+    text-align: left
   display: block
   font-style: italic
   font-size: 1.2rem
 
-
-// QUESTION CONTENT ----------------------------------
-.my-column
-  background: $accent-color
-  height: 100%
-  margin-left: -30px
-  //margin-top: 50px
-  box-shadow: 3px 1px 1px -3px $box-shadow-color, -3px -1px 1px -3px $box-shadow-color
-  border-top: none
-  border-bottom: none
-
-.question-text
-  padding: 25px 0 40px 0
-
-// UNFOLLOW
-.unfollow
-  padding: 25px 0 40px 0
-  display: flex
-  justify-content: center
-  align-items: center
+// FOLLOW
+.follow
   cursor: pointer
   font-style: normal
   color: $bootstrap-primary-color
+  text-align: center
+  margin-top: 7px
+  padding: 25px 0
 
+
+// QUESTION CONTENT --------------------------------------------------------------------
+.first-column
+  margin-top: -1px
+  background: $accent-color
+  box-shadow: 3px 1px 1px -3px $box-shadow-color, -3px -1px 1px -3px $box-shadow-color
+
+.question-text
+  padding: 25px 0
 
 // UPVOTES
-.upvotes
-  padding: 25px 0 40px 0
+.votes
+  padding: 25px 0
   display: flex
   justify-content: flex-end
   align-items: center
@@ -103,7 +106,7 @@
 
 // NEW ANSWER BUTTON
 .new-answer
-  color: black
+  color: $primary-text-color-dark
   font-size: 0.8rem
   padding: 10px 20px
   @media #{$medium}
@@ -111,7 +114,7 @@
     padding: 10px 40px
   border: 1px solid $box-shadow-color
   position: absolute
-  bottom: -20px
+  margin-top: -24px
   left: 50%
   transform: translateX(-50%)
   background: white
@@ -119,74 +122,9 @@
   span
     text-transform: uppercase
 
-// RESPONSES CONTENT -----------------------------------------------
-.responses-content
-  margin-top: 70px
-
-.response-info
+.answers-info
   text-align: center
+  margin-top: 70px
   span
     font-weight: 700
     margin-right: 10px
-
-.response
-  margin-top: 40px
-  background: white
-  box-shadow: 0 1px 3px $box-shadow-color
-  .avatar
-    display: flex
-    justify-content: center
-    border-right: 1px solid $box-shadow-color
-
-.response-header
-  padding: 10px
-
-.response-text
-  padding: 10px
-
-// CONTINUE DISCUSSION
-.comment
-  color: black
-  font-size: 0.8rem
-  padding: 10px 20px
-  @media #{$medium}
-    font-size: 1rem
-    padding: 10px 40px
-  border: 1px solid $box-shadow-color
-  position: absolute
-  bottom: -20px
-  left: calc(50% - 2rem)
-  transform: translateX(-50%)
-  background: white
-  cursor: pointer
-  span
-    text-transform: uppercase
-
-
-
-// OTHERS ----------------------------------
-.accent-text
-  font-size: 1.1rem
-  color: $bootstrap-primary-color
-  &.big
-    font-size: 1.5rem
-
-.normal-text
-  font-size: 1rem
-  color: $primary-text-color-dark
-
-.my-link
-  cursor: pointer
-  &:hover
-    text-decoration: underline
-
-.subtitle
-  margin-left: 10px
-  font-size: 0.8rem
-  text-transform: uppercase
-  color: $primary-text-color-dark
-
-.italic-text
-  color: darken($primary-text-color-dark, 20%)
-  font-size: 1rem
-  font-style: italic

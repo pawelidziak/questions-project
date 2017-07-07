@@ -10,5 +10,8 @@ export interface IQuestion {
   author: IUser;
   text: string;
   answers?: IAnswer[];
-  votes: number;
+  votes?: number;
+  related: number;
+  peers: number;
+  conversations: number;
 }

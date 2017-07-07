@@ -1,0 +1,152 @@
+@import '../../../_helpers/variables'
+
+.my-answer
+  padding: 0 10px
+
+.comments
+  margin-top: 2px
+  > div[class*="col-"]
+    padding: 0
+
+// UNFOLLOW
+.unfollow
+  padding: 25px 0 40px 0
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  font-style: normal
+  color: $bootstrap-primary-color
+
+
+// UPVOTES
+.votes
+  padding: 25px 0 25px 0
+  @media #{$large}
+    padding: 25px 0 40px 0
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  font-style: italic
+  .bold
+    margin-right: 10px
+    font-style: normal
+    font-size: 1.1rem
+    font-weight: 700
+  button
+    background: transparent
+    border: none
+    outline: none
+    width: 100%
+    height: 50px
+.arrow
+  font-size: 50px
+  display: block
+  &:hover
+    color: darken($bootstrap-primary-color, 10%)
+
+.arrows
+  margin-left: 20px
+  .arrow-top
+    border-bottom: 14px solid $bootstrap-primary-color
+    border-right: 11px solid transparent
+    border-left: 11px solid transparent
+    margin-bottom: 10px
+    cursor: pointer
+    &:hover
+      border-bottom-color: darken($bootstrap-primary-color, 10%)
+
+  .arrow-bottom
+    height: 15px
+    width: 15px
+    border-top: 14px solid $bootstrap-primary-color
+    border-right: 11px solid transparent
+    border-left: 11px solid transparent
+    cursor: pointer
+    &:hover
+      border-top-color: darken($bootstrap-primary-color, 10%)
+
+
+
+// RESPONSES CONTENT -----------------------------------------------
+.response
+  margin-top: 40px
+  background: white
+  display: flex
+  justify-content: flex-start
+  box-shadow: 0 1px 3px $box-shadow-color
+  .avatar
+    padding: 10px
+    border-right: none
+    border-bottom: 1px solid $box-shadow-color
+    @media #{$large}
+      border-right: 1px solid $box-shadow-color
+      border-bottom: none
+  &.res-comment
+    margin: 0
+
+.response-header
+  padding: 10px
+  margin-top: -60px
+  margin-left: 60px
+  @media #{$large}
+    margin: 0
+
+.response-text
+  padding: 40px 0 0 20px
+  @media #{$large}
+    padding: 20px 25px 50px 25px
+
+
+// CONTINUE DISCUSSION
+.comment
+  color: black
+  font-size: 0.8rem
+  padding: 10px 20px
+  border: 1px solid $box-shadow-color
+  position: absolute
+  bottom: -20px
+  left: 50%
+  transform: translateX(-50%)
+  background: white
+  cursor: pointer
+  @media #{$large}
+    font-size: 1rem
+    padding: 10px 40px
+    left: calc(50% - 2rem)
+  span
+    text-transform: uppercase
+
+// OTHERS ----------------------------------
+.accent-text
+  font-size: 1.1rem
+  color: $bootstrap-primary-color
+  &.big
+    font-size: 1.5rem
+
+.normal-text
+  font-size: 1rem
+  color: $primary-text-color-dark
+
+.my-link
+  cursor: pointer
+  &:hover
+    text-decoration: underline
+
+.subtitle
+  margin-left: 10px
+  font-size: 0.8rem
+  text-transform: uppercase
+  color: $primary-text-color-dark
+
+.italic-text
+  color: darken($primary-text-color-dark, 20%)
+  font-size: 1rem
+  font-style: italic
+
+.author
+  font-size: 1.1rem
+  cursor: pointer
+  color: $bootstrap-primary-color
+  &:hover
+    text-decoration: underline

@@ -10,9 +10,11 @@ import {ProfileModule} from '../profile/profile.module';
 import {RouterModule} from '@angular/router';
 import {QuestionDetailComponent} from './question-detail/question-detail.component';
 import {AbsolutePipe} from '../_helpers/absolute.pipe';
+import {AnswerComponent} from './question-detail/answer/answer.component';
+import {DatePipe} from '../_helpers/date.pipe';
 
 @NgModule({
-  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AbsolutePipe],
+  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AbsolutePipe, DatePipe, AnswerComponent],
   imports: [CommonModule, RouterModule, ProfileModule],
   exports: [QuestionsListComponent],
   providers: [QuestionsService],

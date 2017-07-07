@@ -1,9 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IQuestion} from '../../_classes/Question';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute} from '@angular/router';
 import {QuestionsService} from '../questions-list.service';
 import {IAnswer} from '../../_classes/Answer';
+import {IUser} from '../../_classes/User';
+import {ModalComponent} from '../../profile/modal/modal.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-question-detail',
@@ -20,7 +23,7 @@ export class QuestionDetailComponent implements OnInit {
 
   private sub: Subscription;
 
-  constructor(private _route: ActivatedRoute, private _questionsService: QuestionsService) {
+  constructor(private _route: ActivatedRoute, private _questionsService: QuestionsService, private modalService: NgbModal) {
   }
 
   ngOnInit() {
@@ -31,6 +34,13 @@ export class QuestionDetailComponent implements OnInit {
         const id = params['id'];
         this.getQuestions(id);
       });
+  }
+
+  openProfileModal(user: IUser) {
+    const modalRef = this.modalService.open(ModalComponent, {
+      size: 'lg'
+    });
+    modalRef.componentInstance.user = user;
   }
 
   getQuestions(id: string) {
@@ -49,7 +59,5 @@ export class QuestionDetailComponent implements OnInit {
     for (const response of this.question.answers) {
       this.answersArray.push(response);
     }
-    console.log(this.question);
-    console.log(this.answersArray);
   }
 }

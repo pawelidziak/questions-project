@@ -7,6 +7,7 @@ import {IComment} from './Comment';
 export interface IAnswer {
   answerAuthor: IUser;
   text: string;
-  comment: IComment[];
+  comments: IComment[];
   votes: number;
+  date: Date;
 }
