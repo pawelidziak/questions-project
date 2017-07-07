@@ -1,0 +1,78 @@
+<section class="container" *ngIf="question">
+  <div class="my-card">
+
+    <div class="row">
+      <div class="col-12 single-question-header">
+
+        <div class="row">
+          <div class="col-10">
+
+            <app-profile [user]="question.author"></app-profile>
+
+            <div class="header-title">
+              <a (click)="openProfileModal(question.author)" class="author">
+                {{question.author.name}}
+              </a>
+              <span class="subtitle">is asking:</span>
+
+              <a class="question">{{question.title}}</a>
+            </div>
+
+          </div>
+
+          <div class="col-2 hidden-md-down">
+            <div class="unfollow">
+              unfollow
+            </div>
+          </div>
+
+        </div>
+
+
+      </div> <!-- /header -->
+
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+        <div class="row">
+
+          <div class="col-lg-2 hidden-sm-down">
+            <div class="my-column">
+
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-8">
+
+            <div class="response">
+              {{question.responses[0].text}}
+            </div>
+
+          </div>
+
+          <div class="col-12 col-lg-2">
+            <div class="d-flex justify-content-between">
+              <div class="unfollow accent-text hidden-lg-up">
+                unfollow
+              </div>
+              <div class="upvotes normal-text">
+                <span>1</span> upvotes
+                <div class="arrows">
+                  <div class="arrow-top"></div>
+                  <div class="arrow-bottom"></div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

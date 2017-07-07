@@ -4,15 +4,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
 import { QuestionsListModule } from './questions-list/questions-list.module';
-import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import {routing} from './app.routing';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    QuestionDetailComponent
+    HeaderComponent
   ],
   imports: [
     HttpModule,

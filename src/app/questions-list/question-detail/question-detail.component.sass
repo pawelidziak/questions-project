@@ -1,0 +1,113 @@
+@import '../../_helpers/variables'
+
+.my-card
+  box-shadow: 0 1px 3px $box-shadow-color
+  background: #fff
+  margin-top: 30px
+  color: $primary-text-color-dark
+  &:after
+    color: black
+    font-size: 0.8rem
+    padding: 10px 20px
+    @media #{$medium}
+      font-size: 1rem
+      padding: 10px 40px
+    content: 'GIVE new answer'
+    border: 1px solid $box-shadow-color
+    position: absolute
+    bottom: -20px
+    left: 50%
+    transform: translateX(-50%)
+    background: white
+    cursor: pointer
+
+.row
+  margin: 0
+
+// HEADER ------------------------------------------------
+.single-question-header
+  background: $accent-color
+  box-shadow: 0 1px 3px $box-shadow-color
+  padding: 15px 24px
+  color: $bootstrap-primary-color
+  .header-title
+    overflow: hidden
+    padding-left: 35px
+    display: block
+    .author
+      font-size: 1.1rem
+      cursor: pointer
+      &:hover
+        text-decoration: underline
+    .subtitle
+      margin-left: 10px
+      font-size: 0.8rem
+      text-transform: uppercase
+      color: $primary-text-color-dark
+    .question
+      margin-top: 10px
+      display: block
+      font-style: italic
+      font-size: 1.2rem
+
+// QUESTION CONTENT ----------------------------------
+.my-column
+  background: $accent-color
+  height: 100%
+  margin-left: -30px
+  //margin-top: 50px
+  box-shadow: 3px 1px 1px -3px $box-shadow-color, -3px -1px 1px -3px $box-shadow-color
+  border-top: none
+  border-bottom: none
+
+.response
+  padding: 25px 0 40px 0
+
+// UNFOLLOW
+.unfollow
+  padding: 25px 0 40px 0
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  font-style: normal
+  color: $bootstrap-primary-color
+
+
+// UPVOTES
+.upvotes
+  padding: 25px 0 40px 0
+  display: flex
+  justify-content: center
+  align-items: center
+  font-style: italic
+  span
+    margin-right: 10px
+    font-style: normal
+    font-size: 1.1rem
+    font-weight: 700
+
+.arrows
+  margin-left: 20px
+  .arrow-top
+    height: 15px
+    width: 15px
+    border-bottom: 14px solid $bootstrap-primary-color
+    border-right: 11px solid transparent
+    border-left: 11px solid transparent
+    margin-bottom: 10px
+    cursor: pointer
+    &:hover
+      border-bottom-color: darken($bootstrap-primary-color, 10%)
+
+  .arrow-bottom
+    height: 15px
+    width: 15px
+    border-top: 14px solid $bootstrap-primary-color
+    border-right: 11px solid transparent
+    border-left: 11px solid transparent
+    cursor: pointer
+    &:hover
+      border-top-color: darken($bootstrap-primary-color, 10%)
+
+

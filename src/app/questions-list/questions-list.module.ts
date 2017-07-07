@@ -8,8 +8,9 @@ import {SingleQuestionComponent} from './single-question/single-question.compone
 import {QuestionsService} from './questions-list.service';
 import {ProfileModule} from '../profile/profile.module';
 import {RouterModule} from '@angular/router';
+import {QuestionDetailComponent} from './question-detail/question-detail.component';
 @NgModule({
-  declarations: [QuestionsListComponent, SingleQuestionComponent],
+  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent],
   imports: [CommonModule, RouterModule, ProfileModule],
   exports: [QuestionsListComponent],
   providers: [QuestionsService],

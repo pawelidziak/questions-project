@@ -12,7 +12,10 @@
           </a>
           <span class="subtitle">is asking:</span>
 
-          <a class="question" [routerLink]="['/cos']">{{question.title}}</a>
+          <a class="question"
+             [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">
+            {{question.title}}
+          </a>
         </div>
       </div> <!-- /header -->
 

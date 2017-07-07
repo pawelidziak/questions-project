@@ -10,7 +10,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import {IQuestion} from '../_classes/Question';
 
-
 @Injectable()
 export class QuestionsService {
 
@@ -21,6 +20,11 @@ export class QuestionsService {
       .get('././assets/questions.json')
       .map((response: Response) => <IQuestion[]> response.json())
       .catch(this.handleError);
+  }
+
+  getQuestion(id: string): Observable<IQuestion> {
+    return this.getQuestions()
+      .map((questions: IQuestion[]) => questions.find(question => question.id === id))
   }
 
   private handleError(error: Response) {
