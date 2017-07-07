@@ -50,8 +50,9 @@
                 unfollow
               </div>
               <div class="upvotes normal-text">
-                <span class="bold">{{question.votes}}</span>
-                <span>upvotes</span>
+                <span class="bold">{{question.votes | absolutePipe}}</span>
+                <span *ngIf="question.votes > 0 ">upvotes</span>
+                <span *ngIf="question.votes < 0 ">downvotes</span>
                 <div class="arrows">
                   <div class="arrow-top"></div>
                   <div class="arrow-bottom"></div>
