@@ -12,7 +12,9 @@
             <div class="header-title hidden-lg-up">
               <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
               <span class="subtitle">is asking: </span>
-              <span class="question">{{question.title}}</span>
+              <span class="question"
+                    [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
+              </span>
             </div>
           </div>
 
@@ -22,7 +24,9 @@
             <div class="header-title hidden-md-down">
               <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
               <span class="subtitle">is asking: </span> <br>
-              <span class="question">{{question.title}}</span>
+              <span class="question"
+                    [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
+              </span>
             </div>
 
           </div>
