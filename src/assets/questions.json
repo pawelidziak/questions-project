@@ -272,24 +272,6 @@
         "text": "Example answer 4",
         "votes": -4,
         "date": "06.07.2017"
-      },
-      {
-        "id": "7",
-        "connectedTo": "2",
-        "type": "COMMENT",
-        "author": {
-          "name": "Piotr",
-          "memberFor": "22.10.2017",
-          "lastSeen": "22.10.2017",
-          "peers": 5,
-          "discussions": 6,
-          "findings": 7,
-          "questions": 8,
-          "avatarUrl": "assets/avatars/3.png"
-        },
-        "text": "Example comment 3 to answer 2",
-        "votes": 5,
-        "date": "06.07.2017"
       }
     ]
   }

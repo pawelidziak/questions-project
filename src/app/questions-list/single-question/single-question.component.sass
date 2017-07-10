@@ -1,79 +1,82 @@
 @import '../../_helpers/variables'
+@import '../../_helpers/mixins'
 
-.my-card
-  box-shadow: 0 1px 3px rgba(0,0,0,0.24)
-  background: #fff
-  margin-top: 30px
+.question-card
+  margin-top: 40px
+  background: white
+  box-shadow: 0 1px 3px $box-shadow-color
   padding-bottom: 50px
 
-.row
-  margin: 0
+.first-row
+  box-shadow: 0 1px 3px $box-shadow-color
 
-.card-header
+.header
+  @include d-flex
+  @include flex-justify-center-l
+  @include flex-align-center
+  padding: 15px 10px
+  height: 100px
+
+.header-title
+  padding: 10px
+  margin-left: 10px
+  @media #{$large}
+    padding: 20px 10px 10px 20px
+    margin-left: -30px
+
+.question
+  display: block
+  color: $bootstrap-primary-color !important
+  font-style: italic
+  font-size: 1.2rem
+  margin-top: 5px
+
+.responses
+  > div[class*="col-"]
+    padding: 0
+
+.first-col
   background: $accent-color
-  box-shadow: 0 1px 3px rgba(0,0,0,0.24)
-  padding: 15px 24px
-  color: $bootstrap-primary-color
-  .header-title
-    overflow: hidden
-    padding-left: 40px
-    .author
-      font-size: 1.1rem
-    .subtitle
-      margin-left: 10px
-      font-size: 0.8rem
-      text-transform: uppercase
-      color: $primary-text-color-dark
-    .question
-      margin-top: 10px
-      display: block
-      font-style: italic
-      font-size: 1.2rem
+  min-height: 150px
+  color: lighten($primary-text-color-dark, 20%)
+  box-shadow: 0 3px 3px $box-shadow-color
+  margin-top: -2px
 
-// reset padding
-.answers
+.normal-col
+  box-shadow: 0 1px 3px $box-shadow-color
+  color: lighten($primary-text-color-dark, 20%)
+  margin: 10px 5px 0 5px
+  min-height: 100%
+  @media #{$large}
+    margin: 50px 5px 0 5px
+    min-height: calc(100% - 50px)
   text-align: center
-  padding: 0
-  > .row > div[class*="col-"]
-    padding: 5px 5px 0 5px
-    @media #{$medium}
-      padding: 50px 5px 0 5px
-
-.small-card
-  box-shadow: 0 2.5px 3px rgba(0,0,0,0.24)
-  height: 100%
-  min-height: 180px
-  &.first
-    background: $accent-color
-    margin-left: -5px
-    margin-top: -51px
-    height: 128.5%
+  background: darken($background-color, 5%)
+  @include d-flex
+  @include flex-align-center
+  flex-direction: column
   &.second
-    padding-top: 35px
+    background: transparent
+    font-style: italic
     font-weight: 700
-  &.normal
-    background: darken($background-color, 5%)
-    padding: 0 10px
-  .small-card-content
-    display: flex
-    justify-content: center
-    margin-bottom: 100px
-    padding-top: 20px
+    .profile
+      padding-top: 35px
+
+.profile
+  padding: 20px 10px 10px 10px
+  margin-bottom: 120px
 
 .footer
   position: absolute
-  width: 70%
-  bottom: 15px
+  bottom: 0
   left: 50%
   transform: translateX(-50%)
-  font-size: 0.9rem
-  font-style: italic
-  padding-top: 7px
-  &.line
-    border-top: 1px solid
-    text-transform: uppercase
-    font-size: 0.7rem
-    font-style: normal
+  text-transform: uppercase
+  padding: 5px 5px 15px 5px
+  font-size: 0.8rem
+
+.line
+  border-bottom: 1px solid $icon-color
 
 .my-dot
   width: 16px
@@ -81,7 +84,9 @@
   position: absolute
   left: 50%
   transform: translateX(calc(-50%))
-  bottom: -8px
+  bottom: -18px
+  @media #{$large}
+    bottom: -8px
   border-radius: 50%
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
   &.commented
@@ -89,37 +94,26 @@
   &.answered
     background: darken($background-color, 80%)
 
-.single-question-more
-  font-size: 0.7rem
-  height: 100%
-  display: flex
-  justify-content: center
-  align-self: center
-  flex-direction: row
-  @media #{$medium}
-    font-size: 1rem
-  font-style: italic
+.more
+  @include d-flex
+  @include flex-justify-center
+  flex-direction: column
+  margin-top: 50px
   .one-info
-    padding: 5px 0
-    &:first-child
-      padding-top: 0
+    padding: 10px
     span
+      margin-right: 10px
       font-weight: 700
-      font-size: 1.2rem
-      font-style: normal
-      @media #{$small}
-        margin-right: 10px
 
-// OTHERS ----------------------------------
-.accent-text
-  font-size: 1.1rem
-  color: $bootstrap-primary-color
-  &.big
-    font-size: 1.5rem
 
-.normal-text
-  font-size: 1rem
-  color: $primary-text-color-dark
+.bg-accent
+  background: $accent-color
 
-.my-link
-  cursor: pointer
+.author
+  @include author
+
+.subtitle
+  @include subtitle
+
+.flex-justify-center-l
+  @include flex-justify-center-l

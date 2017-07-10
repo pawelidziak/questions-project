@@ -14,6 +14,10 @@
 
 .header-title
   padding: 10px
+  margin-left: 10px
+  @media #{$large}
+    padding: 20px 10px 10px 20px
+    margin-left: -20px
 
 .first-col
   background: $accent-color
@@ -46,7 +50,6 @@
   @include flex-justify-center
   @include flex-align-center
   color: $bootstrap-primary-color
-  cursor: pointer
   margin-right: 20px
 
 .responses-content

@@ -21,11 +21,13 @@
 .header
   padding: 10px
   margin-left: 50px
+  margin-top: -50px
   @media #{$large}
+    margin-top: 0
     margin-left: 0
 
 // answer text
-.answer-text
+.comment-text
   padding: 10px
 
 // includes mixins
@@ -45,4 +47,5 @@
   @include middle-button
 
 .flex-justify-center-l
+  @include d-flex
   @include flex-justify-center-l
