@@ -1,0 +1,51 @@
+<div class="row comments" *ngFor="let comment of comments; let i=index">
+
+  <div class="offset-1 col-11 comment-card">
+
+    <div class="row">
+      <div class="col-12 col-lg-1 avatar">
+        <div class="flex-justify-center-l">
+          <app-profile [user]="comment.author"></app-profile>
+        </div>
+        <div class="header hidden-lg-up">
+          <span class="author" (click)="openProfileModal(comment.author)">{{comment.author.name}}</span>
+          <span class="subtitle">answered it &#8226;</span>
+          <span class="italic-text">{{comment.date | datePipe}}</span>
+        </div>
+      </div>
+      <div class="col-12 col-lg-11">
+
+        <div class="header hidden-md-down">
+          <span class="author" (click)="openProfileModal(comment.author)">{{comment.author.name}}</span>
+          <span class="subtitle">answered it &#8226;</span>
+          <span class="italic-text">{{comment.date | datePipe}}</span>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-lg-10">
+            <div class="answer-text">
+              {{comment.text}}
+            </div>
+          </div>
+          <div class="col-12 col-lg-2">
+
+            <div class="votes normal-text">
+              <span class="bold">{{comment.votes | absolutePipe }}</span>
+              <span *ngIf="comment.votes === 0 ">votes</span>
+              <span *ngIf="comment.votes > 0 ">upvotes</span>
+              <span *ngIf="comment.votes < 0 ">downvotes</span>
+              <div class="arrows">
+                <fieldset [disabled]="disableVoteUp" class="arrow-top" (click)="vote(comment, true)"></fieldset>
+                <fieldset [disabled]="disableVoteDown" class="arrow-bottom" (click)="vote(comment, false)"></fieldset>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="continue-discussion" *ngIf="comments.length - 1 === i"><span>comment</span></div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

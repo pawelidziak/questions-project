@@ -9,13 +9,12 @@ import {QuestionsService} from './questions-list.service';
 import {ProfileModule} from '../profile/profile.module';
 import {RouterModule} from '@angular/router';
 import {QuestionDetailComponent} from './question-detail/question-detail.component';
-import {AbsolutePipe} from '../_helpers/pipes/absolute.pipe';
 import {AnswerComponent} from './question-detail/answer/answer.component';
-import {DatePipe} from '../_helpers/pipes/date.pipe';
 import {PipeModule} from '../_helpers/pipes/pipe.module';
+import { CommentComponent } from './question-detail/answer/comment/comment.component';
 
 @NgModule({
-  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AnswerComponent],
+  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AnswerComponent, CommentComponent],
   imports: [CommonModule, RouterModule, ProfileModule, PipeModule],
   exports: [QuestionsListComponent],
   providers: [QuestionsService],

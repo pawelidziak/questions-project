@@ -1,14 +1,12 @@
-@import '../../../_helpers/variables'
-@import '../../../_helpers/mixins'
+@import '../../../../_helpers/variables'
+@import '../../../../_helpers/mixins'
 
-.row
+.comments
   margin: 0
-  > * div[class*="col-"]
-    padding: 0
 
 // ANSWER CARD
-.answer-card
-  margin-top: 40px
+.comment-card
+  margin-top: 2px
   background: white
   box-shadow: 0 1px 3px $box-shadow-color
   .avatar
@@ -30,7 +28,6 @@
 .answer-text
   padding: 10px
 
-
 // includes mixins
 .votes
   @include votes
@@ -44,7 +41,7 @@
 .italic-text
   @include italic-text
 
-.comment
+.continue-discussion
   @include middle-button
 
 .flex-justify-center-l
