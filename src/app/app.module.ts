@@ -4,6 +4,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
 import { QuestionsListModule } from './questions-list/questions-list.module';
+import { routing } from './app.routing';
+import { RouterModule } from '@angular/router';
+import {AppService} from './app.service';
+import { FormsModule } from '@angular/forms';
+import {PipeModule} from './_helpers/pipes/pipe.module';
 
 @NgModule({
   declarations: [
@@ -13,9 +18,13 @@ import { QuestionsListModule } from './questions-list/questions-list.module';
   imports: [
     HttpModule,
     BrowserModule,
-    QuestionsListModule
+    routing,
+    RouterModule,
+    QuestionsListModule,
+    FormsModule,
+    PipeModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent],
 
 })

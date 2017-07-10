@@ -1,0 +1,79 @@
+<section class="container" *ngIf="question">
+
+  <div class="my-card">
+
+    <div class="row">
+      <div class="col-12 card-header">
+
+        <div class="row">
+          <div class="col-12 col-lg-10">
+
+            <app-profile [user]="question.author"></app-profile>
+
+            <div class="header-title">
+              <a (click)="openProfileModal(question.author)" class="author">
+                {{question.author.name}}
+              </a>
+              <span class="subtitle">is asking:</span>
+            </div>
+            <a class="question">{{question.title}}</a>
+          </div>
+
+          <div class="col-lg-2 hidden-md-down">
+            <div class="follow">
+              unfollow
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- /header -->
+    </div> <!-- /row -->
+
+    <div class="row">
+      <!-- empty, colorized column-->
+      <div class="col-lg-1 hidden-sm-down first-column"></div>
+
+      <!-- question text-->
+      <div class="col12 col-lg-9">
+        <div class="question-text">
+          {{question.text}}
+        </div>
+      </div>
+
+      <!-- follow / votes -->
+      <div class="col-12 col-lg-2 d-flex justify-content-between">
+
+        <div class="follow accent-text hidden-lg-up">
+          unfollow
+        </div>
+        <div class="votes normal-text">
+          <span class="bold">{{question.votes | absolutePipe}}</span>
+          <span *ngIf="question.votes > 0 ">upvotes</span>
+          <span *ngIf="question.votes < 0 ">downvotes</span>
+          <div class="arrows">
+            <div class="arrow-top"></div>
+            <div class="arrow-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /row -->
+
+
+    <div class="new-answer"><span>give</span> new answer</div>
+
+  </div> <!-- /my-card -->
+
+
+  <div class="answers-content">
+    <div class="row">
+      <div class="col-12 answers-info">
+        <span>{{answers}}</span> peers already answered {{question.author.name}}
+      </div>
+    </div>
+
+    <app-answer *ngFor="let response of answersWithComments" [response]="response"></app-answer>
+
+
+  </div> <!-- /responses-content -->
+
+</section>

@@ -1,6 +1,12 @@
 [
   {
+    "id": "1",
     "title": "First question for test",
+    "text": "First question text",
+    "votes": 5,
+    "related": 4,
+    "peers": 21,
+    "conversations": 14,
     "author": {
       "name": "Pawel",
       "memberFor": "22.10.2017",
@@ -13,8 +19,28 @@
     },
     "responses": [
       {
-        "type": "commented",
-        "answerAuthor": {
+        "id": "1",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
+          "name": "Beny",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 2,
+          "discussions": 6,
+          "findings": 4,
+          "questions": 5,
+          "avatarUrl": "assets/avatars/5.png"
+        },
+        "text": "Example answer 1",
+        "votes": 20,
+        "date": "07.07.2017"
+      },
+      {
+        "id": "2",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
           "name": "Piotr",
           "memberFor": "22.10.2017",
           "lastSeen": "22.10.2017",
@@ -24,40 +50,52 @@
           "questions": 8,
           "avatarUrl": "assets/avatars/2.png"
         },
-        "text": "Example comment"
+        "text": "Example answer 2",
+        "votes": 0,
+        "date": "06.07.2017"
       },
       {
-        "type": "commented",
-        "answerAuthor": {
-          "name": "Kuba",
+        "id": "3",
+        "connectedTo": "1",
+        "type": "COMMENT",
+        "author": {
+          "name": "Piotr",
           "memberFor": "22.10.2017",
           "lastSeen": "22.10.2017",
           "peers": 5,
           "discussions": 6,
           "findings": 7,
           "questions": 8,
-          "avatarUrl": "assets/avatars/1.png"
-        },
-        "text": "Example comment"
-      },
-      {
-        "type": "commented",
-        "answerAuthor": {
-          "name": "Beata",
-          "memberFor": "22.10.2017",
-          "lastSeen": "22.10.2017",
-          "peers": 123,
-          "discussions": 165,
-          "findings": 999,
-          "questions": 185,
           "avatarUrl": "assets/avatars/3.png"
         },
-        "text": "Example comment"
+        "text": "Example comment 1 to answer 1",
+        "votes": 1,
+        "date": "06.07.2017"
       },
       {
-        "type": "answered",
-        "answerAuthor": {
-          "name": "Mateusz",
+        "id": "4",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
+          "name": "Piotr",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 5,
+          "discussions": 6,
+          "findings": 7,
+          "questions": 8,
+          "avatarUrl": "assets/avatars/4.png"
+        },
+        "text": "Example answer 3",
+        "votes": -2,
+        "date": "06.07.2017"
+      },
+      {
+        "id": "5",
+        "connectedTo": "4",
+        "type": "COMMENT",
+        "author": {
+          "name": "Piotr",
           "memberFor": "22.10.2017",
           "lastSeen": "22.10.2017",
           "peers": 5,
@@ -66,40 +104,15 @@
           "questions": 8,
           "avatarUrl": "assets/avatars/5.png"
         },
-        "text": "Example answer"
+        "text": "Example comment 2 to answer 3",
+        "votes": 3,
+        "date": "06.07.2017"
       },
       {
-        "type": "answered",
-        "answerAuthor": {
-          "name": "Renata",
-          "memberFor": "22.10.2017",
-          "lastSeen": "22.10.2017",
-          "peers": 5,
-          "discussions": 6,
-          "findings": 7,
-          "questions": 8,
-          "avatarUrl": "assets/avatars/3.png"
-        },
-        "text": "Example answer"
-      }
-    ]
-  },
-  {
-    "title": "Second question for test",
-    "author": {
-      "name": "Robot",
-      "memberFor": "22.10.2017",
-      "lastSeen": "22.10.2017",
-      "peers": 5,
-      "discussions": 6,
-      "findings": 7,
-      "questions": 8,
-      "avatarUrl": "assets/avatars/4.png"
-    },
-    "responses": [
-      {
-        "type": "commented",
-        "answerAuthor": {
+        "id": "6",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
           "name": "Piotr",
           "memberFor": "22.10.2017",
           "lastSeen": "22.10.2017",
@@ -109,26 +122,16 @@
           "questions": 8,
           "avatarUrl": "assets/avatars/2.png"
         },
-        "text": "Example comment"
+        "text": "Example answer 4",
+        "votes": -4,
+        "date": "06.07.2017"
       },
       {
-        "type": "answered",
-        "answerAuthor": {
-          "name": "Kuba",
-          "memberFor": "22.10.2017",
-          "lastSeen": "22.10.2017",
-          "peers": 5,
-          "discussions": 6,
-          "findings": 7,
-          "questions": 8,
-          "avatarUrl": "assets/avatars/1.png"
-        },
-        "text": "Example answer"
-      },
-      {
-        "type": "commented",
-        "answerAuthor": {
-          "name": "Beata",
+        "id": "7",
+        "connectedTo": "2",
+        "type": "COMMENT",
+        "author": {
+          "name": "Piotr",
           "memberFor": "22.10.2017",
           "lastSeen": "22.10.2017",
           "peers": 5,
@@ -137,7 +140,156 @@
           "questions": 8,
           "avatarUrl": "assets/avatars/3.png"
         },
-        "text": "Example comment"
+        "text": "Example comment 3 to answer 2",
+        "votes": 5,
+        "date": "06.07.2017"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Second question for test",
+    "text": "Second question text",
+    "votes": 4,
+    "related": 3,
+    "peers": 5,
+    "conversations": 2,
+    "author": {
+      "name": "Beata",
+      "memberFor": "22.10.2017",
+      "lastSeen": "22.10.2017",
+      "peers": 5,
+      "discussions": 6,
+      "findings": 7,
+      "questions": 8,
+      "avatarUrl": "assets/avatars/3.png"
+    },
+    "responses": [
+      {
+        "id": "1",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
+          "name": "Beny",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 2,
+          "discussions": 6,
+          "findings": 4,
+          "questions": 5,
+          "avatarUrl": "assets/avatars/5.png"
+        },
+        "text": "Example answer 1",
+        "votes": 20,
+        "date": "07.07.2017"
+      },
+      {
+        "id": "2",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
+          "name": "Piotr",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 5,
+          "discussions": 6,
+          "findings": 7,
+          "questions": 8,
+          "avatarUrl": "assets/avatars/2.png"
+        },
+        "text": "Example answer 2",
+        "votes": 0,
+        "date": "06.07.2017"
+      },
+      {
+        "id": "3",
+        "connectedTo": "1",
+        "type": "COMMENT",
+        "author": {
+          "name": "Piotr",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 5,
+          "discussions": 6,
+          "findings": 7,
+          "questions": 8,
+          "avatarUrl": "assets/avatars/3.png"
+        },
+        "text": "Example comment 1 to answer 1",
+        "votes": 1,
+        "date": "06.07.2017"
+      },
+      {
+        "id": "4",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
+          "name": "Piotr",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 5,
+          "discussions": 6,
+          "findings": 7,
+          "questions": 8,
+          "avatarUrl": "assets/avatars/4.png"
+        },
+        "text": "Example answer 3",
+        "votes": -2,
+        "date": "06.07.2017"
+      },
+      {
+        "id": "5",
+        "connectedTo": "4",
+        "type": "COMMENT",
+        "author": {
+          "name": "Piotr",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 5,
+          "discussions": 6,
+          "findings": 7,
+          "questions": 8,
+          "avatarUrl": "assets/avatars/5.png"
+        },
+        "text": "Example comment 2 to answer 3",
+        "votes": 3,
+        "date": "06.07.2017"
+      },
+      {
+        "id": "6",
+        "connectedTo": "1",
+        "type": "ANSWER",
+        "author": {
+          "name": "Piotr",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 5,
+          "discussions": 6,
+          "findings": 7,
+          "questions": 8,
+          "avatarUrl": "assets/avatars/2.png"
+        },
+        "text": "Example answer 4",
+        "votes": -4,
+        "date": "06.07.2017"
+      },
+      {
+        "id": "7",
+        "connectedTo": "2",
+        "type": "COMMENT",
+        "author": {
+          "name": "Piotr",
+          "memberFor": "22.10.2017",
+          "lastSeen": "22.10.2017",
+          "peers": 5,
+          "discussions": 6,
+          "findings": 7,
+          "questions": 8,
+          "avatarUrl": "assets/avatars/3.png"
+        },
+        "text": "Example comment 3 to answer 2",
+        "votes": 5,
+        "date": "06.07.2017"
       }
     ]
   }
