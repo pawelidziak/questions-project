@@ -21,7 +21,7 @@
 
 // UPVOTES
 .votes
-  padding: 25px 0 25px 0
+  padding: 25px 0 45px 0
   @media #{$large}
     padding: 25px 0 40px 0
   display: flex
@@ -87,8 +87,10 @@
 
 .response-header
   padding: 10px
-  margin-top: -60px
+  margin-top: -75px
   margin-left: 60px
+  @media #{$small}
+    margin-top: -60px
   @media #{$large}
     margin: 0
 
@@ -101,6 +103,7 @@
 // CONTINUE DISCUSSION
 .comment
   color: black
+  text-align: center
   font-size: 0.8rem
   padding: 10px 20px
   border: 1px solid $box-shadow-color

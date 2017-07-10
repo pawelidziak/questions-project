@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IAnswer} from '../../../_classes/Answer';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {IUser} from '../../../_classes/User';
 import {ModalComponent} from '../../../profile/modal/modal.component';
+import {IResponse} from '../../../_classes/Response';
 
 @Component({
   selector: 'app-answer',
@@ -11,17 +11,30 @@ import {ModalComponent} from '../../../profile/modal/modal.component';
 })
 export class AnswerComponent implements OnInit {
 
-  @Input('answer') answer: IAnswer;
+  @Input('response') response: IResponse[];
   disableVoteUp = false;
   disableVoteDown = false;
   tmpVotes: number;
+
+  answer: IResponse;
+  comments: IResponse[];
 
   constructor(private modalService: NgbModal) {
   }
 
   ngOnInit() {
+    this.comments = [];
+    this.initVariables();
     this.tmpVotes = this.answer.votes;
   }
+
+  private initVariables(): void {
+    this.answer = this.response[0];
+    for (let i = 1; i < this.response.length; i++) {
+      this.comments.push(this.response[i]);
+    }
+  }
+
 
   vote(res: any, up: boolean): void {
     if (up) {
@@ -32,12 +45,12 @@ export class AnswerComponent implements OnInit {
       }
     } else {
       res.votes = res.votes - 1;
-      if (this.tmpVotes  !== res.votes) {
+      if (this.tmpVotes !== res.votes) {
         this.disableVoteDown = true;
       }
     }
 
-    if (this.tmpVotes  === res.votes) {
+    if (this.tmpVotes === res.votes) {
       this.disableVoteUp = false;
       this.disableVoteDown = false;
     }

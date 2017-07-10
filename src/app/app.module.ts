@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { QuestionsListModule } from './questions-list/questions-list.module';
 import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
+import {AppService} from './app.service';
+import { FormsModule } from '@angular/forms';
+import {PipeModule} from './_helpers/pipes/pipe.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,11 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     routing,
     RouterModule,
-    QuestionsListModule
+    QuestionsListModule,
+    FormsModule,
+    PipeModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent],
 
 })

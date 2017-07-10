@@ -67,11 +67,11 @@
   <div class="answers-content">
     <div class="row">
       <div class="col-12 answers-info">
-        <span>{{answersArray.length}}</span> peers already answered {{question.author.name}}
+        <span>{{answers}}</span> peers already answered {{question.author.name}}
       </div>
     </div>
 
-    <app-answer *ngFor="let response of answersArray" [answer]="response"></app-answer>
+    <app-answer *ngFor="let response of answersWithComments" [response]="response"></app-answer>
 
 
   </div> <!-- /responses-content -->

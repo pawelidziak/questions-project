@@ -33,7 +33,7 @@
 
           <div class="col-6 col-sm-4 col-lg-2">
             <div class="small-card second">
-              {{moreActivities}}
+              {{activities}}
               <div class="footer">more activities</div>
               <div class="my-dot commented"></div>
             </div>
@@ -43,9 +43,12 @@
                [ngClass]="{'hidden-xs-down': i === 1, 'hidden-md-down': i > 1}">
             <div class="small-card normal">
               <div class="small-card-content">
-                <app-profile [user]="answer.answerAuthor"></app-profile>
-                <div class="footer line">answered</div>
-                <div class="my-dot answered">
+                <app-profile [user]="answer.author"></app-profile>
+                <div class="footer line">
+                  <span *ngIf="answer.type === 'ANSWER'">answered</span>
+                  <span *ngIf="answer.type === 'COMMENT'">commented</span>
+                </div>
+                <div class="my-dot" [ngClass]="{'answered': answer.type === 'ANSWER', 'commented': answer.type === 'COMMENT'}">
                 </div>
               </div>
             </div>

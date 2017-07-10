@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppService} from '../app.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  firstView: boolean;
   sortBySelected: string;
+  queryString: string;
 
-  constructor() { }
+  constructor(public _appService: AppService) { }
 
   ngOnInit() {
-    this.firstView = true;
   }
 
 }

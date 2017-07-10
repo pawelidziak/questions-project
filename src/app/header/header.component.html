@@ -14,7 +14,7 @@
       </div>
 
       <div class="col-12 col-md-8 header-options">
-        <div class="row" [hidden]="!firstView">
+        <div class="row" [hidden]="!_appService.firstView">
 
           <div class="col-12 col-sm-6 col-md-7 col-xl-9 checkboxes">
             <div class="form-check form-check-inline">
@@ -40,7 +40,7 @@
           </div>
         </div> <!-- /row -->
 
-        <div class="row right-text" [hidden]="firstView">
+        <div class="row right-text" [hidden]="_appService.firstView">
           <div class="col-12">
             Last time discussed
             <span class="right-text-link selected">1</span>
@@ -52,11 +52,12 @@
     </div> <!-- /row -->
 
     <!-- Second row-->
-    <div class="row" [hidden]="!firstView">
+    <div class="row" [hidden]="!_appService.firstView">
       <div class="search">
 
         <form class="input-group">
-          <input type="text" class="form-control" id="search-input" placeholder="Search questions">
+          <input type="text" class="form-control" id="search-input" placeholder="Search questions"
+                 name="search-input" [(ngModel)]="_appService.queryString">
           <button type="submit" class="btn btn-outline-secondary my-search-button">search</button>
         </form>
 

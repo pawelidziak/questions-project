@@ -2,12 +2,12 @@
 
   <div class="response row">
     <div class="col-12 col-lg-1 avatar">
-      <app-profile [user]="answer.answerAuthor"></app-profile>
+      <app-profile [user]="answer.author"></app-profile>
     </div>
 
     <div class="col-12 col-lg-11">
       <div class="response-header">
-        <span class="accent-text" (click)="openProfileModal(answer.answerAuthor)">{{answer.answerAuthor.name}}</span>
+        <span class="accent-text" (click)="openProfileModal(answer.author)">{{answer.author.name}}</span>
         <span class="subtitle">answered it &#8226;</span>
         <span class="italic-text">{{answer.date | datePipe}}</span>
       </div>
@@ -31,21 +31,21 @@
 
         </div>
       </div>
-      <div class="comment" *ngIf="answer.comments.length === 0"><span>comment</span></div>
+      <div class="comment" *ngIf="comments.length === 0"><span>comment</span></div>
     </div>
 
   </div> <!-- /row -->
 
-  <div class="row comments" *ngIf="answer.comments.length !== 0">
-    <div class="offset-1 col-11" *ngFor="let comment of answer.comments; let i=index">
+  <div class="row comments" *ngIf="comments.length >= 0">
+    <div class="offset-1 col-11" *ngFor="let comment of comments; let i=index">
       <div class="response res-comment row" *ngIf="i === 0">
         <div class="col-12 col-lg-1 avatar">
-          <app-profile [user]="comment.answerAuthor"></app-profile>
+          <app-profile [user]="comment.author"></app-profile>
         </div>
 
         <div class="col-12 col-lg-11">
           <div class="response-header">
-            <span class="accent-text">{{comment.answerAuthor.name}}</span>
+            <span class="accent-text">{{comment.author.name}}</span>
             <span class="subtitle">commented it &#8226;</span>
             <span class="italic-text">{{comment.date | datePipe}}</span>
           </div>
