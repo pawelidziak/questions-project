@@ -12,12 +12,13 @@ import {QuestionDetailComponent} from './question-detail/question-detail.compone
 import {AnswerComponent} from './question-detail/answer/answer.component';
 import {PipeModule} from '../_helpers/pipes/pipe.module';
 import { CommentComponent } from './question-detail/answer/comment/comment.component';
+import {NgbModule, NgbTooltipConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AnswerComponent, CommentComponent],
-  imports: [CommonModule, RouterModule, ProfileModule, PipeModule],
+  imports: [CommonModule, RouterModule, ProfileModule, PipeModule, NgbModule],
   exports: [QuestionsListComponent],
-  providers: [QuestionsService],
+  providers: [QuestionsService, NgbTooltipConfig],
 
 })
 export class QuestionsListModule { }

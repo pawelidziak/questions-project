@@ -18,7 +18,7 @@
         <div class="header hidden-md-down">
           <span class="author" (click)="openProfileModal(comment.author)">{{comment.author.name}}</span>
           <span class="subtitle">answered it &#8226;</span>
-          <span class="italic-text">{{comment.date | datePipe}}</span>
+          <span ngbTooltip='{{comment.date | date: "dd/MM/yyyy"}}' class="italic-text">{{comment.date | datePipe}}</span>
         </div>
 
         <div class="row">

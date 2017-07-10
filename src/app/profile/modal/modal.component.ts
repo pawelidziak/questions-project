@@ -12,8 +12,8 @@ export class ModalComponent implements OnInit {
   @Input('user') user: IUser;
   user1: IUser = {
     name: 'Test',
-    memberFor: new Date(),
-    lastSeen: new Date,
+    memberFor: new Date('06-10-2017'),
+    lastSeen: new Date('06-10-2017'),
     peers: 10,
     discussions: 15,
     findings: 20,

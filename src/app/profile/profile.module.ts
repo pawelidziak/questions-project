@@ -5,14 +5,15 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProfileComponent} from './profile.component';
 import {ModalComponent} from './modal/modal.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbTooltipConfig} from '@ng-bootstrap/ng-bootstrap';
 import {NgbModalStack} from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
+import {PipeModule} from '../_helpers/pipes/pipe.module';
 
 @NgModule({
   declarations: [ProfileComponent, ModalComponent],
-  imports: [CommonModule, NgbModule],
+  imports: [CommonModule, NgbModule, PipeModule],
   exports: [ProfileComponent, ModalComponent],
-  providers: [NgbModalStack],
+  providers: [NgbModalStack, NgbTooltipConfig],
   entryComponents: [ModalComponent]
 })
 export class ProfileModule { }
