@@ -96,7 +96,16 @@
 
 
 // FLEX
+@mixin d-flex
+  display: flex
+
+@mixin flex-justify-center
+  justify-content: center
+
+@mixin flex-align-center
+  align-items: center
+
 @mixin flex-justify-center-l
   @media #{$large}
-    display: flex
-    justify-content: center
+    @include flex-justify-center
+

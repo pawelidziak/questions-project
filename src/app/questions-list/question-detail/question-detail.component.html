@@ -1,51 +1,56 @@
-<section class="container" *ngIf="question">
+<ng-container *ngIf="question">
 
-  <div class="my-card">
+  <div class="question-card container">
 
-    <div class="row">
-      <div class="col-12 card-header">
+    <div class="row bg-accent">
 
-        <div class="row">
-          <div class="col-12 col-lg-10">
-
-            <app-profile [user]="question.author"></app-profile>
-
-            <div class="header-title">
-              <a (click)="openProfileModal(question.author)" class="author">
-                {{question.author.name}}
-              </a>
-              <span class="subtitle">is asking:</span>
-            </div>
-            <a class="question">{{question.title}}</a>
-          </div>
-
-          <div class="col-lg-2 hidden-md-down">
-            <div class="follow">
-              unfollow
-            </div>
-          </div>
-
+      <div class="col-12 col-lg-1 header">
+        <app-profile [user]="question.author"></app-profile>
+        <div class="header-title hidden-lg-up">
+          <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
+          <span class="subtitle">is asking: </span>
+          <span class="question">{{question.title}}</span>
         </div>
-      </div> <!-- /header -->
-    </div> <!-- /row -->
+      </div>
 
-    <div class="row">
+
+      <div class="col-12 col-lg-10">
+
+        <div class="header-title hidden-md-down">
+          <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
+          <span class="subtitle">is asking: </span> <br>
+          <span class="question">{{question.title}}</span>
+        </div>
+
+      </div>
+      <div class="col-lg-1 hidden-md-down">
+        <div class="follow">
+          <span>unfollow</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row second-row">
       <!-- empty, colorized column-->
-      <div class="col-lg-1 hidden-sm-down first-column"></div>
+
+      <div class="col-lg-1 hidden-sm-down first-col"></div>
 
       <!-- question text-->
-      <div class="col12 col-lg-9">
+      <div class="col-12 col-lg-9">
         <div class="question-text">
           {{question.text}}
         </div>
       </div>
 
       <!-- follow / votes -->
-      <div class="col-12 col-lg-2 d-flex justify-content-between">
+      <div class="col-12 col-lg-2 follow-votes">
 
-        <div class="follow accent-text hidden-lg-up">
-          unfollow
+        <div class="follow hidden-lg-up">
+          <span>unfollow</span>
         </div>
+
         <div class="votes normal-text">
           <span class="bold">{{question.votes | absolutePipe}}</span>
           <span *ngIf="question.votes > 0 ">upvotes</span>
@@ -55,16 +60,15 @@
             <div class="arrow-bottom"></div>
           </div>
         </div>
+
+
       </div>
     </div> <!-- /row -->
+    <div class="give-answer"><span>give</span> answer</div>
+  </div> <!-- /question-card -->
 
 
-    <div class="new-answer"><span>give</span> new answer</div>
-
-  </div> <!-- /my-card -->
-
-
-  <div class="answers-content">
+  <div class="container responses-content">
     <div class="row">
       <div class="col-12 answers-info">
         <span>{{answers}}</span> peers already answered {{question.author.name}}
@@ -76,4 +80,7 @@
 
   </div> <!-- /responses-content -->
 
-</section>
+</ng-container> <!-- /container -->
+
+
+
