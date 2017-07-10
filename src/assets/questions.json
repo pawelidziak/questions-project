@@ -274,5 +274,25 @@
         "date": "06.29.2017"
       }
     ]
+  },
+  {
+    "id": "3",
+    "title": "Third question for test",
+    "text": "Third question text",
+    "votes": 4,
+    "related": 3,
+    "peers": 5,
+    "conversations": 2,
+    "author": {
+      "name": "Beata",
+      "memberFor": "06.10.2017",
+      "lastSeen": "07.09.2017",
+      "peers": 5,
+      "discussions": 6,
+      "findings": 7,
+      "questions": 8,
+      "avatarUrl": "assets/avatars/3.png"
+    },
+    "responses": []
   }
 ]

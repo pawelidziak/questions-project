@@ -2,7 +2,7 @@
 
   <div class="question-card container">
 
-    <div class="row ">
+    <div class="row">
 
       <div class="col-12 col-lg-9 bg-accent">
 
@@ -18,7 +18,6 @@
             </div>
           </div>
 
-
           <div class="col-12 col-lg-6">
 
             <div class="header-title hidden-md-down">
@@ -30,19 +29,16 @@
             </div>
 
           </div>
-        </div>
-
+        </div> <!-- /first-row -->
       </div>
-
-    </div>
-
+    </div> <!-- /row -->
 
     <div class="row">
       <div class="col-7 col-md-9">
 
         <div class="row responses">
-          <div class="col-md-2 hidden-md-down first-col">
 
+          <div class="col-md-2 hidden-md-down first-col">
             <div class="footer">
               <div class="line"></div>
               <span>asked</span>
@@ -61,6 +57,7 @@
             </div>
           </div>
 
+          <!-- display items -->
           <div class="col-6 col-sm-4 col-lg-2" *ngFor="let answer of responseArrayForDisplay; let i=index"
                [ngClass]="{'hidden-xs-down': i === 1, 'hidden-md-down': i > 1}">
 
@@ -77,58 +74,27 @@
                 </div>
               </div>
             </div>
+          </div> <!-- /display items -->
+
+          <!-- empty list -->
+          <div class="col-6 col-sm-8" *ngIf="responseArrayForDisplay.length === 0">
+            <div class="no-responses">
+              <span>No responses yet</span>
+            </div>
           </div>
 
-        </div>
-
-      </div>
+        </div> <!-- /responses -->
+      </div> <!-- /col-7 col-md-9 -->
 
       <div class="col-5 col-md-3">
-
         <div class="more">
           <div class="one-info"><span>{{question.related}}</span> related discussion</div>
           <div class="one-info"><span>{{question.peers}}</span> peers involved</div>
           <div class="one-info"><span>{{question.conversations}}</span> conversations</div>
         </div>
-
       </div>
 
-    </div>
-
-
-    <!--<div class="row ">-->
-    <!--&lt;!&ndash; empty, colorized column&ndash;&gt;-->
-
-    <!--<div class="col-lg-2 hidden-sm-down first-col"></div>-->
-
-    <!--&lt;!&ndash; question text&ndash;&gt;-->
-    <!--<div class="col-12 col-lg-8">-->
-    <!--<div class="question-text">-->
-    <!--{{question.text}}-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <!--&lt;!&ndash; follow / votes &ndash;&gt;-->
-    <!--<div class="col-12 col-lg-2 follow-votes">-->
-
-    <!--<div class="follow hidden-lg-up">-->
-    <!--<span>unfollow</span>-->
-    <!--</div>-->
-
-    <!--<div class="votes normal-text">-->
-    <!--<span class="bold">{{question.votes | absolutePipe}}</span>-->
-    <!--<span *ngIf="question.votes > 0 ">upvotes</span>-->
-    <!--<span *ngIf="question.votes < 0 ">downvotes</span>-->
-    <!--<div class="arrows">-->
-    <!--<div class="arrow-top"></div>-->
-    <!--<div class="arrow-bottom"></div>-->
-    <!--</div>-->
-    <!--</div>-->
-
-
-    <!--</div>-->
-    <!--</div> &lt;!&ndash; /row &ndash;&gt;-->
-    <!---->
+    </div> <!-- /row -->
 
   </div> <!-- /question-card -->
 </section>
