@@ -1,70 +1,100 @@
-<section class="container" (window:resize)="onResize($event)">
-  <div class=" my-card">
+<section (window:resize)="onResize($event)">
+
+  <div class="question-card container">
 
     <div class="row">
-      <div class="col-12 col-lg-8 card-header">
 
-        <app-profile [user]="question.author"></app-profile>
+      <div class="col-12 col-lg-9 bg-accent">
 
-        <div class="header-title">
-          <span class="author my-link" (click)="openProfileModal(question.author)">
-            {{question.author.name}}
-          </span>
-          <span class="subtitle">is asking:</span>
+        <div class="row first-row">
+          <div class="col-12 col-lg-2 header">
+            <app-profile [user]="question.author"></app-profile>
+            <div class="header-title hidden-lg-up">
+              <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
+              <span class="subtitle">is asking: </span>
+              <span class="question"
+                    [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
+              </span>
+            </div>
+          </div>
 
-          <span class="question my-link" [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">
-            {{question.title}}
-          </span>
-        </div>
-      </div> <!-- /header -->
+          <div class="col-12 col-lg-6">
 
-    </div>
+            <div class="header-title hidden-md-down">
+              <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
+              <span class="subtitle">is asking: </span> <br>
+              <span class="question"
+                    [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
+              </span>
+            </div>
+
+          </div>
+        </div> <!-- /first-row -->
+      </div>
+    </div> <!-- /row -->
 
     <div class="row">
-      <div class="col-8 answers">
+      <div class="col-7 col-md-9">
 
-        <div class="row">
+        <div class="row responses">
 
-          <div class="col-md-2 hidden-md-down">
-            <div class="small-card first">
-              <div class="footer line">asked</div>
+          <div class="col-md-2 hidden-md-down first-col">
+            <div class="footer">
+              <div class="line"></div>
+              <span>asked</span>
             </div>
           </div>
 
           <div class="col-6 col-sm-4 col-lg-2">
-            <div class="small-card second">
-              {{activities}}
-              <div class="footer">more activities</div>
-              <div class="my-dot commented"></div>
-            </div>
-          </div>
-
-          <div class="col-6 col-sm-4 col-lg-2" *ngFor="let answer of responseArrayForDisplay; let i=index"
-               [ngClass]="{'hidden-xs-down': i === 1, 'hidden-md-down': i > 1}">
-            <div class="small-card normal">
-              <div class="small-card-content">
-                <app-profile [user]="answer.author"></app-profile>
-                <div class="footer line">
-                  <span *ngIf="answer.type === 'ANSWER'">answered</span>
-                  <span *ngIf="answer.type === 'COMMENT'">commented</span>
-                </div>
-                <div class="my-dot" [ngClass]="{'answered': answer.type === 'ANSWER', 'commented': answer.type === 'COMMENT'}">
-                </div>
+            <div class="normal-col second">
+              <div class="profile">
+                <span>{{activities}}</span>
+              </div>
+              <div class="footer">
+                <span>more activities</span>
+                <div class="my-dot commented"></div>
               </div>
             </div>
           </div>
 
-        </div>
-      </div>
+          <!-- display items -->
+          <div class="col-6 col-sm-4 col-lg-2" *ngFor="let answer of responseArrayForDisplay; let i=index"
+               [ngClass]="{'hidden-xs-down': i === 1, 'hidden-md-down': i > 1}">
 
-      <div class="col-4 single-question-more">
+            <div class="normal-col">
+              <div class="profile">
+                <app-profile [user]="question.author"></app-profile>
+              </div>
+              <div class="footer">
+                <div class="line"></div>
+                <span *ngIf="answer.type === 'ANSWER'">answered</span>
+                <span *ngIf="answer.type === 'COMMENT'">commented</span>
+                <div class="my-dot"
+                     [ngClass]="{'answered': answer.type === 'ANSWER', 'commented': answer.type === 'COMMENT'}">
+                </div>
+              </div>
+            </div>
+          </div> <!-- /display items -->
+
+          <!-- empty list -->
+          <div class="col-6 col-sm-8" *ngIf="responseArrayForDisplay.length === 0">
+            <div class="no-responses">
+              <span>No responses yet</span>
+            </div>
+          </div>
+
+        </div> <!-- /responses -->
+      </div> <!-- /col-7 col-md-9 -->
+
+      <div class="col-5 col-md-3">
         <div class="more">
           <div class="one-info"><span>{{question.related}}</span> related discussion</div>
           <div class="one-info"><span>{{question.peers}}</span> peers involved</div>
           <div class="one-info"><span>{{question.conversations}}</span> conversations</div>
         </div>
       </div>
-    </div>
 
-  </div>
+    </div> <!-- /row -->
+
+  </div> <!-- /question-card -->
 </section>

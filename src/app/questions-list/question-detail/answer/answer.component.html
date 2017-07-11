@@ -1,80 +1,51 @@
-<section class="my-answer">
+<div class="answer-card row">
 
-  <div class="response row">
-    <div class="col-12 col-lg-1 avatar">
+  <div class="col-12 col-lg-1 avatar">
+    <div class="flex-justify-center-l">
       <app-profile [user]="answer.author"></app-profile>
     </div>
 
-    <div class="col-12 col-lg-11">
-      <div class="response-header">
-        <span class="accent-text" (click)="openProfileModal(answer.author)">{{answer.author.name}}</span>
-        <span class="subtitle">answered it &#8226;</span>
-        <span class="italic-text">{{answer.date | datePipe}}</span>
-      </div>
-
-      <div class="row">
-        <div class="col-12 col-lg-10 response-text">
-          {{answer.text}}
-        </div>
-        <div class="col-12 col-lg-2">
-
-          <div class="votes normal-text">
-            <span class="bold">{{answer.votes | absolutePipe }}</span>
-            <span *ngIf="answer.votes === 0 ">votes</span>
-            <span *ngIf="answer.votes > 0 ">upvotes</span>
-            <span *ngIf="answer.votes < 0 ">downvotes</span>
-            <div class="arrows">
-              <fieldset [disabled]="disableVoteUp" class="arrow-top" (click)="vote(answer, true)"></fieldset>
-              <fieldset [disabled]="disableVoteDown" class="arrow-bottom" (click)="vote(answer, false)"></fieldset>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="comment" *ngIf="comments.length === 0"><span>comment</span></div>
-    </div>
-
-  </div> <!-- /row -->
-
-  <div class="row comments" *ngIf="comments.length >= 0">
-    <div class="offset-1 col-11" *ngFor="let comment of comments; let i=index">
-      <div class="response res-comment row" *ngIf="i === 0">
-        <div class="col-12 col-lg-1 avatar">
-          <app-profile [user]="comment.author"></app-profile>
-        </div>
-
-        <div class="col-12 col-lg-11">
-          <div class="response-header">
-            <span class="accent-text">{{comment.author.name}}</span>
-            <span class="subtitle">commented it &#8226;</span>
-            <span class="italic-text">{{comment.date | datePipe}}</span>
-          </div>
-
-          <div class="row">
-            <div class="col-12 col-lg-10 response-text">
-              {{comment.text}}
-            </div>
-            <div class="col-12 col-lg-2">
-
-              <div class="votes normal-text">
-                <span class="bold">{{comment.votes | absolutePipe}}</span>
-                <span *ngIf="comment.votes === 0 ">votes</span>
-                <span *ngIf="comment.votes > 0 ">upvotes</span>
-                <span *ngIf="comment.votes < 0 ">downvotes</span>
-                <div class="arrows">
-                  <fieldset [disabled]="disableVoteUp" class="arrow-top" (click)="vote(comment, true)"></fieldset>
-                  <fieldset [disabled]="disableVoteDown" class="arrow-bottom" (click)="vote(comment, false)"></fieldset>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="comment"><span>Continue</span> dicsussion</div>
-        </div>
-
-      </div> <!-- /row -->
+    <div class="header hidden-lg-up">
+      <span class="author" (click)="openProfileModal(answer.author)">{{answer.author.name}}</span>
+      <span class="subtitle">answered it &#8226;</span>
+      <span class="italic-text">{{answer.date | datePipe}}</span>
     </div>
   </div>
 
+  <div class="col-12 col-lg-11">
 
-</section>
+    <div class="header hidden-md-down">
+      <span class="author" (click)="openProfileModal(answer.author)">{{answer.author.name}}</span>
+      <span class="subtitle">answered it &#8226;</span>
+      <span ngbTooltip='{{answer.date | date: "dd/MM/yyyy"}}' class="italic-text">{{answer.date | datePipe}}</span>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-lg-10">
+        <div class="answer-text">
+          {{answer.text}}
+        </div>
+      </div>
+      <div class="col-12 col-lg-2">
+
+        <div class="votes normal-text">
+          <span class="bold">{{answer.votes | absolutePipe }}</span>
+          <span *ngIf="answer.votes === 0 ">votes</span>
+          <span *ngIf="answer.votes > 0 ">upvotes</span>
+          <span *ngIf="answer.votes < 0 ">downvotes</span>
+          <div class="arrows">
+            <fieldset [disabled]="disableVoteUp" class="arrow-top" (click)="vote(answer, true)"></fieldset>
+            <fieldset [disabled]="disableVoteDown" class="arrow-bottom" (click)="vote(answer, false)"></fieldset>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="comment" *ngIf="comments.length === 0"><span>comment</span></div>
+  </div>
+
+</div> <!-- /row -->
+
+<app-comment *ngIf="comments.length >= 0" [comments]="comments"></app-comment>
+
+

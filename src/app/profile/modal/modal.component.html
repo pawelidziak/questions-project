@@ -19,11 +19,11 @@
       <div class="row my-header-boxes">
         <div class="col-12 col-lg-4">
           <span class="header-text">member for</span>
-          <span class="header-response">5 months</span>
+          <span ngbTooltip='{{user.memberFor | date: "dd/MM/yyyy"}}' class="header-response">{{user.memberFor | datePipe}}</span>
         </div>
         <div class="col-12 col-lg-4">
           <span class="header-text">last seen</span>
-          <span class="header-response"> Saturday afternoon</span>
+          <span ngbTooltip='{{user.lastSeen | date: "dd/MM/yyyy"}}' class="header-response">{{user.lastSeen | datePipe}}</span>
         </div>
         <div class="col-12 col-lg-4">
           <span class="header-text">activity level</span>
@@ -102,23 +102,15 @@
         </div>
 
         <div class="row relationships-boxes">
-          <div class="col-4">
+          <div class="box" *ngFor="let sameUser of usersWithSamePeriod">
             <div class="pattern-box">
-              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
+              <img [src]="sameUser.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen(sameUser)">
             </div>
-            <div class="accent-text">ktos</div>
+            <div class="accent-text">{{sameUser.name}}</div>
           </div>
-          <div class="col-4">
-            <div class="pattern-box">
-              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
-            </div>
-            <div class="accent-text">ktos</div>
-          </div>
-          <div class="col-4">
-            <div class="pattern-box">
-              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
-            </div>
-            <div class="accent-text">ktos</div>
+
+          <div *ngIf="usersWithSamePeriod.length === 0">
+            <div class="box no-connections">No connections</div>
           </div>
         </div>
 

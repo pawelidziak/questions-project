@@ -1,130 +1,84 @@
 @import '../../_helpers/variables'
+@import '../../_helpers/mixins'
 
-.my-card
+.question-card
+  margin-top: 40px
+  background: white
   box-shadow: 0 1px 3px $box-shadow-color
-  background: #fff
-  margin-top: 30px
 
-.card-header
-  background: $accent-color
-  .row > div[class*="col-"]
-    padding: 0 0 0 10px
-.row
-  margin: 0
+.header
+  @include d-flex
+  @include flex-justify-center-l
+  @include flex-align-center
+  padding: 10px
 
-// HEADER ------------------------------------------------------------------------------------
-.card-header
-  background: $accent-color
-  box-shadow: 0 1px 3px $box-shadow-color
-  padding: 15px 8px
 .header-title
-  margin-top: 20px
-  color: $bootstrap-primary-color
-  overflow: hidden
-  padding-left: 35px
-  @media #{$medium}
-    margin-top: 0
-
-.author
-  font-size: 1.1rem
-  cursor: pointer
-  &:hover
-    text-decoration: underline
-
-.subtitle
+  padding: 10px
   margin-left: 10px
-  font-size: 0.8rem
-  text-transform: uppercase
-  color: $primary-text-color-dark
+  @media #{$large}
+    padding: 20px 10px 10px 20px
+    margin-left: -20px
+
+.first-col
+  background: $accent-color
+  @media #{$large}
+    min-height: 100px
 
 .question
-  color: $bootstrap-primary-color !important
-  text-align: center
-  margin-top: 25px
-  @media #{$medium}
-    margin-top: 10px
-    margin-left: 85px
-    text-align: left
   display: block
+  color: $bootstrap-primary-color !important
   font-style: italic
   font-size: 1.2rem
 
-// FOLLOW
-.follow
-  cursor: pointer
-  font-style: normal
-  color: $bootstrap-primary-color
-  text-align: center
-  margin-top: 7px
-  padding: 25px 0
-
-
-// QUESTION CONTENT --------------------------------------------------------------------
-.first-column
-  margin-top: -1px
-  background: $accent-color
-  box-shadow: 3px 1px 1px -3px $box-shadow-color, -3px -1px 1px -3px $box-shadow-color
-
 .question-text
-  padding: 25px 0
+  padding-top: 30px
+  padding-bottom: 30px
+  height: 100%
+  @include d-flex
+  @include flex-align-center
 
-// UPVOTES
-.votes
-  padding: 25px 0
-  display: flex
-  justify-content: flex-end
-  align-items: center
-  font-style: italic
-  .bold
-    margin-right: 10px
-    font-style: normal
-    font-size: 1.1rem
-    font-weight: 700
+.follow-votes
+  @include d-flex
+  justify-content: space-around
+  @media #{$large}
+    @include flex-justify-center
 
-.arrows
-  margin-left: 20px
-  .arrow-top
-    height: 15px
-    width: 15px
-    border-bottom: 14px solid $bootstrap-primary-color
-    border-right: 11px solid transparent
-    border-left: 11px solid transparent
-    margin-bottom: 10px
-    cursor: pointer
-    &:hover
-      border-bottom-color: darken($bootstrap-primary-color, 10%)
+.follow, .votes
+  padding: 35px 0
+  height: 100%
+  @include d-flex
+  @include flex-justify-center
+  @include flex-align-center
+  color: $bootstrap-primary-color
+  margin-right: 20px
 
-  .arrow-bottom
-    height: 15px
-    width: 15px
-    border-top: 14px solid $bootstrap-primary-color
-    border-right: 11px solid transparent
-    border-left: 11px solid transparent
-    cursor: pointer
-    &:hover
-      border-top-color: darken($bootstrap-primary-color, 10%)
-
-// NEW ANSWER BUTTON
-.new-answer
-  color: $primary-text-color-dark
-  font-size: 0.8rem
-  padding: 10px 20px
-  @media #{$medium}
-    font-size: 1rem
-    padding: 10px 40px
-  border: 1px solid $box-shadow-color
-  position: absolute
-  margin-top: -24px
-  left: 50%
-  transform: translateX(-50%)
-  background: white
-  cursor: pointer
-  span
-    text-transform: uppercase
+.responses-content
+  margin-top: 50px
 
 .answers-info
   text-align: center
-  margin-top: 70px
+  margin-top: 20px
   span
     font-weight: 700
     margin-right: 10px
+
+// includes mixins
+.votes
+  @include votes
+  color: $primary-text-color-dark
+
+.give-answer
+  @include middle-button
+  margin-left: 32px
+
+.bg-accent
+  background: $accent-color
+
+.author
+  @include author
+
+.subtitle
+  @include subtitle
+
+.flex-justify-center-l
+  @include flex-justify-center-l

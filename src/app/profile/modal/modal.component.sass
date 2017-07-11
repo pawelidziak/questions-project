@@ -71,6 +71,7 @@
 .header-response
   font-size: 0.9rem
   color: darken($primary-text-color-dark, 50%)
+  font-weight: 700
 
 .my-hr
   margin-top: 1rem
@@ -139,11 +140,18 @@
   margin-bottom: 30px
 
 .relationships-boxes
-  text-align: center
-  @media #{$large}
-    padding: 0 220px
-  > div[class*="col-"]
-    padding: 0
+  display: flex
+  justify-items: center
+  justify-content: center
+
+.box
+  display: block
+  margin: 5px
+
+.no-connections
+  font-size: 0.9rem
+  letter-spacing: 0.1rem
+  color: $primary-text-color-dark
 
 // HOTTEST DISCUSSION ----------------------
 .hottest-discussion-boxes
