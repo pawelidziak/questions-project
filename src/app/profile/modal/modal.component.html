@@ -102,23 +102,15 @@
         </div>
 
         <div class="row relationships-boxes">
-          <div class="col-4">
+          <div class="box" *ngFor="let sameUser of usersWithSamePeriod">
             <div class="pattern-box">
-              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
+              <img [src]="sameUser.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen(sameUser)">
             </div>
-            <div class="accent-text">ktos</div>
+            <div class="accent-text">{{sameUser.name}}</div>
           </div>
-          <div class="col-4">
-            <div class="pattern-box">
-              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
-            </div>
-            <div class="accent-text">ktos</div>
-          </div>
-          <div class="col-4">
-            <div class="pattern-box">
-              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
-            </div>
-            <div class="accent-text">ktos</div>
+
+          <div *ngIf="usersWithSamePeriod.length === 0">
+            <div class="box no-connections">No connections</div>
           </div>
         </div>
 

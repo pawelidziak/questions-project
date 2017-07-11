@@ -40,10 +40,10 @@
 
 .first-col
   background: $accent-color
-  min-height: 150px
+  min-height: 100px
   color: lighten($primary-text-color-dark, 20%)
   box-shadow: 0 3px 3px $box-shadow-color
-  margin-top: -2px
+  //margin-top: -2px
 
 .normal-col
   box-shadow: 0 1px 3px $box-shadow-color
@@ -63,11 +63,11 @@
     font-style: italic
     font-weight: 700
     .profile
-      padding-top: 35px
+      padding-top: 50px
 
 .profile
-  padding: 20px 10px 10px 10px
-  margin-bottom: 120px
+  padding: 40px 10px 10px 10px
+  margin-bottom: 100px
 
 .footer
   position: absolute
@@ -110,13 +110,14 @@
       margin-right: 10px
       font-weight: 700
 
-
 .no-responses
   @include d-flex
   @include flex-justify-center
   height: 100%
   span
     margin: auto 0
+    font-size: 0.9rem
+    letter-spacing: 0.1rem
     color: $primary-text-color-dark
 
 .bg-accent

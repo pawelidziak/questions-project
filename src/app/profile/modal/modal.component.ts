@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {IUser} from '../../_classes/User';
+import {ModalService} from './modal.service';
 
 @Component({
   selector: 'app-modal',
@@ -10,32 +11,35 @@ import {IUser} from '../../_classes/User';
 export class ModalComponent implements OnInit {
 
   @Input('user') user: IUser;
-  user1: IUser = {
-    name: 'Test',
-    memberFor: new Date('06-10-2017'),
-    lastSeen: new Date('06-10-2017'),
-    peers: 10,
-    discussions: 15,
-    findings: 20,
-    questions: 25,
-    avatarUrl: 'assets/avatars/2.png'
-  };
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal) {
+  usersWithSamePeriod: IUser[];
+
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _modalService: ModalService) {
   }
 
   ngOnInit() {
+    this.usersWithSamePeriod = [];
+    this.getUsersWithSamePeriod(new Date(this.user.memberFor));
   }
 
-  private openNextProfileModal() {
+  private openNextProfileModal(user: IUser) {
     const modalRef = this.modalService.open(ModalComponent, {
       size: 'lg'
     });
-    modalRef.componentInstance.user = this.user1;
+    modalRef.componentInstance.user = user;
   }
 
-  closeAndOpen() {
+  closeAndOpen(user: IUser) {
     this.activeModal.close();
-    this.openNextProfileModal();
+    this.openNextProfileModal(user);
+  }
+
+  private getUsersWithSamePeriod(date: Date) {
+    this._modalService.getUsersWithSamePeriod(date)
+      .subscribe((data) => {
+        if (this.usersWithSamePeriod.length <= 2) {
+          this.usersWithSamePeriod.push(data);
+        }
+      });
   }
 }

@@ -2,8 +2,6 @@
  * Created by pawel.idziak on 08.07.2017.
  */
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import {Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
@@ -15,7 +13,7 @@ export class AppService {
   private _firstView = true;
   private _queryString: string;
 
-  constructor(private _http: Http) {
+  constructor() {
   }
 
 
