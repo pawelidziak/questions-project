@@ -53,6 +53,9 @@
       cursor: pointer
       &:hover
         border-bottom-color: darken($bootstrap-primary-color, 10%)
+      &.disabled
+        border-bottom-color: $box-shadow-color
+        cursor: not-allowed
 
     .arrow-bottom
       height: 15px
@@ -63,6 +66,9 @@
       cursor: pointer
       &:hover
         border-top-color: darken($bootstrap-primary-color, 10%)
+      &.disabled
+        border-top-color: $box-shadow-color
+        cursor: not-allowed
 
 
 @mixin accent-text

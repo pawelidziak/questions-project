@@ -8,16 +8,21 @@ import {ModalComponent} from '../../profile/modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {IResponse} from '../../_classes/Response';
 import {AppService} from '../../app.service';
+import {VotingService} from '../voting.service';
 
 @Component({
   selector: 'app-question-detail',
   templateUrl: './question-detail.component.html',
-  styleUrls: ['./question-detail.component.sass']
+  styleUrls: ['./question-detail.component.sass'],
+  providers: [VotingService]
 })
 export class QuestionDetailComponent implements OnInit {
 
   question: IQuestion;
   errorMessage: any;
+
+  disVoteUp = false;
+  disVoteDown = false;
 
   answersArray: IResponse[];
   answersWithComments: any[];
@@ -26,7 +31,7 @@ export class QuestionDetailComponent implements OnInit {
   private sub: Subscription;
 
   constructor(private _route: ActivatedRoute, private _questionsService: QuestionsService, private modalService: NgbModal,
-              private _appService: AppService) {
+              private _appService: AppService, private _votingService: VotingService) {
   }
 
   ngOnInit() {
@@ -36,6 +41,25 @@ export class QuestionDetailComponent implements OnInit {
         const id = params['id'];
         this.getQuestions(id);
       });
+  }
+
+  initVotes() {
+    this._votingService.votes = this.question.votes;
+    this._votingService.orgVotes = this.question.votes;
+  }
+
+  voteUp() {
+    this._votingService.voteUp();
+    this.question.votes = this._votingService.votes;
+    this.disVoteUp = this._votingService.disVoteUp;
+    this.disVoteDown = this._votingService.disVoteDown;
+  }
+
+  voteDown() {
+    this._votingService.voteDown();
+    this.question.votes = this._votingService.votes;
+    this.disVoteUp = this._votingService.disVoteUp;
+    this.disVoteDown = this._votingService.disVoteDown;
   }
 
   openProfileModal(user: IUser) {
@@ -51,6 +75,7 @@ export class QuestionDetailComponent implements OnInit {
         question => {
           this.question = question;
           this.filterResponses();
+          this.initVotes();
         },
         error => {
           this.errorMessage = <any>error;

@@ -11,14 +11,17 @@ import {RouterModule} from '@angular/router';
 import {QuestionDetailComponent} from './question-detail/question-detail.component';
 import {AnswerComponent} from './question-detail/answer/answer.component';
 import {PipeModule} from '../_helpers/pipes/pipe.module';
-import { CommentComponent } from './question-detail/answer/comment/comment.component';
+import {CommentComponent} from './question-detail/answer/comments-list/comment/comment.component';
 import {NgbModule, NgbTooltipConfig} from '@ng-bootstrap/ng-bootstrap';
+import {CommentsListComponent} from './question-detail/answer/comments-list/comments-list.component';
 
 @NgModule({
-  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AnswerComponent, CommentComponent],
+  declarations: [QuestionsListComponent, SingleQuestionComponent, QuestionDetailComponent, AnswerComponent,
+    CommentComponent, CommentsListComponent],
   imports: [CommonModule, RouterModule, ProfileModule, PipeModule, NgbModule],
   exports: [QuestionsListComponent],
   providers: [QuestionsService, NgbTooltipConfig],
 
 })
-export class QuestionsListModule { }
+export class QuestionsListModule {
+}

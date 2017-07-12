@@ -34,8 +34,8 @@
           <span *ngIf="answer.votes > 0 ">upvotes</span>
           <span *ngIf="answer.votes < 0 ">downvotes</span>
           <div class="arrows">
-            <fieldset [disabled]="disableVoteUp" class="arrow-top" (click)="vote(answer, true)"></fieldset>
-            <fieldset [disabled]="disableVoteDown" class="arrow-bottom" (click)="vote(answer, false)"></fieldset>
+            <fieldset [disabled]="disVoteUp" class="arrow-top" (click)="voteUp()" [ngClass]="{'disabled': disVoteUp}"></fieldset>
+            <fieldset [disabled]="disVoteDown" class="arrow-bottom" (click)="voteDown()" [ngClass]="{'disabled': disVoteDown}"></fieldset>
           </div>
         </div>
 
@@ -46,6 +46,6 @@
 
 </div> <!-- /row -->
 
-<app-comment *ngIf="comments.length >= 0" [comments]="comments"></app-comment>
+<app-comments-list *ngIf="comments.length >= 0" [comments]="comments"></app-comments-list>
 
 

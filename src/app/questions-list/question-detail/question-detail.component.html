@@ -56,8 +56,8 @@
           <span *ngIf="question.votes > 0 ">upvotes</span>
           <span *ngIf="question.votes < 0 ">downvotes</span>
           <div class="arrows">
-            <div class="arrow-top"></div>
-            <div class="arrow-bottom"></div>
+            <fieldset [disabled]="disVoteUp" class="arrow-top" (click)="voteUp()" [ngClass]="{'disabled': disVoteUp}"></fieldset>
+            <fieldset [disabled]="disVoteDown" class="arrow-bottom" (click)="voteDown()" [ngClass]="{'disabled': disVoteDown}"></fieldset>
           </div>
         </div>
 

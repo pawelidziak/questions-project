@@ -3,29 +3,32 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {IUser} from '../../../_classes/User';
 import {ModalComponent} from '../../../profile/modal/modal.component';
 import {IResponse} from '../../../_classes/Response';
+import {VotingService} from '../../voting.service';
 
 @Component({
   selector: 'app-answer',
   templateUrl: './answer.component.html',
-  styleUrls: ['./answer.component.sass']
+  styleUrls: ['./answer.component.sass'],
+  providers: [VotingService]
 })
 export class AnswerComponent implements OnInit {
 
   @Input('response') response: IResponse[];
-  disableVoteUp = false;
-  disableVoteDown = false;
+  disVoteUp = false;
+  disVoteDown = false;
   tmpVotes: number;
 
   answer: IResponse;
   comments: IResponse[];
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private _votingService: VotingService) {
   }
 
   ngOnInit() {
     this.comments = [];
     this.initVariables();
     this.tmpVotes = this.answer.votes;
+    this.initVotes();
   }
 
   private initVariables(): void {
@@ -35,25 +38,23 @@ export class AnswerComponent implements OnInit {
     }
   }
 
+  initVotes() {
+    this._votingService.votes = this.answer.votes;
+    this._votingService.orgVotes = this.answer.votes;
+  }
 
-  vote(res: any, up: boolean): void {
-    if (up) {
-      res.votes = res.votes + 1;
+  voteUp() {
+    this._votingService.voteUp();
+    this.answer.votes = this._votingService.votes;
+    this.disVoteUp = this._votingService.disVoteUp;
+    this.disVoteDown = this._votingService.disVoteDown;
+  }
 
-      if (this.tmpVotes !== res.votes) {
-        this.disableVoteUp = true;
-      }
-    } else {
-      res.votes = res.votes - 1;
-      if (this.tmpVotes !== res.votes) {
-        this.disableVoteDown = true;
-      }
-    }
-
-    if (this.tmpVotes === res.votes) {
-      this.disableVoteUp = false;
-      this.disableVoteDown = false;
-    }
+  voteDown() {
+    this._votingService.voteDown();
+    this.answer.votes = this._votingService.votes;
+    this.disVoteUp = this._votingService.disVoteUp;
+    this.disVoteDown = this._votingService.disVoteDown;
   }
 
   openProfileModal(user: IUser) {
