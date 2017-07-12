@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {IUser} from '../../../_classes/User';
-import {ModalComponent} from '../../../profile/modal/modal.component';
-import {IResponse} from '../../../_classes/Response';
-import {VotingService} from '../../voting.service';
+import {IUser} from '../../_classes/User';
+import {ModalComponent} from '../../profile/modal/modal.component';
+import {IResponse} from '../../_classes/Response';
+import {VotingService} from '../../_services/voting.service';
 
 @Component({
   selector: 'app-answer',

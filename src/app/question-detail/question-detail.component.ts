@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {IQuestion} from '../../_classes/Question';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute} from '@angular/router';
-import {QuestionsService} from '../questions-list.service';
-import {IUser} from '../../_classes/User';
-import {ModalComponent} from '../../profile/modal/modal.component';
+import {IQuestion} from '../_classes/Question';
+import {IResponse} from '../_classes/Response';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {IResponse} from '../../_classes/Response';
-import {AppService} from '../../app.service';
-import {VotingService} from '../voting.service';
+import {IUser} from '../_classes/User';
+import {ModalComponent} from '../profile/modal/modal.component';
+import {AppService} from '../_services/app.service';
+import {VotingService} from '../_services/voting.service';
+import {QuestionsService} from '../_services/questions-list.service';
 
 @Component({
   selector: 'app-question-detail',

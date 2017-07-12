@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {IUser} from '../../_classes/User';
-import {ModalService} from './modal.service';
+import {UsersService} from '../../_services/users.service';
 
 @Component({
   selector: 'app-modal',
@@ -14,7 +14,7 @@ export class ModalComponent implements OnInit {
 
   usersWithSamePeriod: IUser[];
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _modalService: ModalService) {
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usersService: UsersService) {
   }
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class ModalComponent implements OnInit {
   }
 
   private getUsersWithSamePeriod(date: Date) {
-    this._modalService.getUsersWithSamePeriod(date)
+    this._usersService.getUsersWithSamePeriod(date)
       .subscribe((data) => {
         if (this.usersWithSamePeriod.length <= 2) {
           this.usersWithSamePeriod.push(data);

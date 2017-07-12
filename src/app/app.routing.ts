@@ -4,7 +4,7 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {QuestionsListComponent} from './questions-list/questions-list.component';
-import {QuestionDetailComponent} from './questions-list/question-detail/question-detail.component';
+import {QuestionDetailComponent} from './question-detail/question-detail.component';
 
 const routes: Routes = [
   {
