@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IResponse} from '../../../../_classes/Response';
+import {IResponse} from '../../../_classes/Response';
 
 @Component({
   selector: 'app-comments-list',

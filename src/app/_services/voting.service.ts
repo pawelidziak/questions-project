@@ -2,10 +2,6 @@
  * Created by pawel.idziak on 12.07.2017.
  */
 import {Injectable} from '@angular/core';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
 
 @Injectable()
 export class VotingService {
@@ -15,7 +11,8 @@ export class VotingService {
   private _disVoteUp: boolean;
   private _disVoteDown: boolean;
 
-  /* in voteUp and voteDown methods should has additional method which connect with backend and saves values */
+  /* in voteUp and voteDown methods should has additional method which connect with backend and saves values
+   * (and recognizes if it is question, answer or comment) */
 
   constructor() {
     this.disVoteUp = false;
@@ -52,7 +49,6 @@ export class VotingService {
   set votes(value: number) {
     this._votes = value;
   }
-
 
   get orgVotes(): number {
     return this._orgVotes;

@@ -9,11 +9,10 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
-
-import {IUser} from '../../_classes/User';
+import {IUser} from '../_classes/User';
 
 @Injectable()
-export class ModalService {
+export class UsersService {
 
   constructor(private _http: Http) {
   }

@@ -3,7 +3,6 @@ import {IQuestion} from '../../_classes/Question';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalComponent} from '../../profile/modal/modal.component';
 import {IUser} from '../../_classes/User';
-import {AppService} from '../../app.service';
 
 @Component({
   selector: 'app-single-question',

@@ -1,5 +1,5 @@
-@import '../../_helpers/variables'
-@import '../../_helpers/mixins'
+@import '../_helpers/variables'
+@import '../_helpers/mixins'
 
 .question-card
   margin-top: 40px
@@ -43,7 +43,7 @@
   @media #{$large}
     @include flex-justify-center
 
-.follow, .votes
+.follow
   padding: 35px 0
   height: 100%
   @include d-flex
@@ -51,6 +51,7 @@
   @include flex-align-center
   color: $bootstrap-primary-color
   margin-right: 20px
+  cursor: pointer
 
 .responses-content
   margin-top: 50px
@@ -66,6 +67,8 @@
 .votes
   @include votes
   color: $primary-text-color-dark
+  justify-content: flex-end
+  margin-top: 15px
 
 .give-answer
   @include middle-button
