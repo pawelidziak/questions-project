@@ -1,4 +1,4 @@
-<div class="row comments" *ngFor="let comment of comments; let i=index">
+<div class="row comments" *ngIf="comment">
 
   <div class="offset-1 col-11 comment-card">
 
@@ -9,7 +9,7 @@
         </div>
         <div class="header hidden-lg-up">
           <span class="author" (click)="openProfileModal(comment.author)">{{comment.author.name}}</span>
-          <span class="subtitle">answered it &#8226;</span>
+          <span class="subtitle">commented it &#8226;</span>
           <span class="italic-text">{{comment.date | datePipe}}</span>
         </div>
       </div>
@@ -17,7 +17,7 @@
 
         <div class="header hidden-md-down">
           <span class="author" (click)="openProfileModal(comment.author)">{{comment.author.name}}</span>
-          <span class="subtitle">answered it &#8226;</span>
+          <span class="subtitle">commented it &#8226;</span>
           <span ngbTooltip='{{comment.date | date: "dd/MM/yyyy"}}' class="italic-text">{{comment.date | datePipe}}</span>
         </div>
 
@@ -35,14 +35,14 @@
               <span *ngIf="comment.votes > 0 ">upvotes</span>
               <span *ngIf="comment.votes < 0 ">downvotes</span>
               <div class="arrows">
-                <fieldset [disabled]="disableVoteUp" class="arrow-top" (click)="vote(comment, true)"></fieldset>
-                <fieldset [disabled]="disableVoteDown" class="arrow-bottom" (click)="vote(comment, false)"></fieldset>
+                <fieldset [disabled]="disVoteUp" class="arrow-top" (click)="voteUp()" [ngClass]="{'disabled': disVoteUp}"></fieldset>
+                <fieldset [disabled]="disVoteDown" class="arrow-bottom" (click)="voteDown()" [ngClass]="{'disabled': disVoteDown}"></fieldset>
               </div>
             </div>
 
           </div>
         </div>
-        <div class="continue-discussion" *ngIf="comments.length - 1 === i"><span>continue</span> discussion</div>
+        <div class="continue-discussion" *ngIf="commentsLength -  1 === i"><span>continue</span> discussion</div>
 
       </div>
     </div>
