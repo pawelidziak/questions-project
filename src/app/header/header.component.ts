@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppService} from '../_services/app.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,14 @@ import {AppService} from '../_services/app.service';
 export class HeaderComponent implements OnInit {
 
   sortBySelected: string;
-  queryString: string;
-
-  constructor(public _appService: AppService) { }
-
-  ngOnInit() {
+  constructor(public _appService: AppService, private _location: Location) {
   }
 
+  ngOnInit() {
+    this.sortBySelected = 'recent';
+  }
+
+  goBack() {
+    this._location.back();
+  }
 }

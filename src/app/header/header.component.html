@@ -1,58 +1,58 @@
 <nav class="navbar sticky-top my-header">
+
   <div class="container">
 
     <!-- First row -->
     <div class="row first-row">
 
-      <div class="col-12 col-md-4">
-        <div class="header-title">
-          questions
-          <button class="btn btn-sm btn-primary btn-circle">
-            <i class="material-icons">add</i>
-          </button>
+      <div class="title">
+        <button class="btn btn-sm btn-circle btn-go-back" (click)="goBack()" [disabled]="_appService.firstView"
+                [ngClass]="{'disabled': _appService.firstView}">
+          <i class="material-icons">keyboard_arrow_left</i>
+        </button>
+        <span>QUESTIONS</span>
+        <button class="btn btn-sm btn-primary btn-circle">
+          <i class="material-icons">add</i>
+        </button>
+
+      </div>
+
+      <div class="options" [hidden]="!_appService.firstView">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                   checked>
+            My shelf
+          </label>
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            All questions
+          </label>
         </div>
       </div>
 
-      <div class="col-12 col-md-8 header-options">
-        <div class="row" [hidden]="!_appService.firstView">
-
-          <div class="col-12 col-sm-6 col-md-7 col-xl-9 checkboxes">
-            <div class="form-check form-check-inline">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                       checked>
-                My shelf
-              </label>
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                All questions
-              </label>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-5 col-xl-3 right-text">
-            Sort by:
-            <span class="right-text-link" (click)="sortBySelected='recent'"
-                  [ngClass]="{'not-selected': sortBySelected!=='recent', 'selected': sortBySelected==='recent'}">recent</span>
-            or
-            <span class="right-text-link" (click)="sortBySelected='hot'"
-                  [ngClass]="{'not-selected': sortBySelected!=='hot', 'selected': sortBySelected==='hot'}">hot</span>
-          </div>
-        </div> <!-- /row -->
-
-        <div class="row right-text" [hidden]="_appService.firstView">
-          <div class="col-12">
-            Last time discussed
-            <span class="right-text-link selected">1</span>
-            day ago
-          </div>
-        </div>
+      <div class="sort-by" [hidden]="!_appService.firstView">
+        Sort by:
+        <span class="select-link" (click)="sortBySelected='recent'"
+              [ngClass]="{'not-selected': sortBySelected!=='recent', 'selected': sortBySelected==='recent'}">
+          recent
+        </span>
+        or
+        <span class="select-link" (click)="sortBySelected='hot'"
+              [ngClass]="{'not-selected': sortBySelected!=='hot', 'selected': sortBySelected==='hot'}">
+        hot
+        </span>
       </div>
 
-    </div> <!-- /row -->
+      <div class="time" [hidden]="_appService.firstView">
+        Last time discussed
+        <span class="select-link selected">1</span>
+        day ago
+      </div>
+    </div> <!-- /first - row -->
 
     <!-- Second row-->
-    <div class="row" [hidden]="!_appService.firstView">
+    <div class="row second-row" [hidden]="!_appService.firstView">
       <div class="search">
 
         <form class="input-group">
