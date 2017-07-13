@@ -4,8 +4,8 @@
 import {IUser} from './User';
 
 export interface IResponse {
-  id: string;
-  connectedTo: string;
+  id: number;
+  connectedTo: number;
   type: string;
   author: IUser;
   text: string;

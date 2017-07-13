@@ -89,18 +89,26 @@
     cursor: not-allowed
 
 .search
-  width: 100%
   margin: 20px 0 10px 0
-  padding: 0 15px
+  width: 100%
+  .input-group
+    display: inline-block
+    @media #{$small}
+      display: flex
+  @media #{$small}
+    padding: 0 15px
 
 #search-input
   border-radius: 0
+  width: 100%
   background-color: $background-color
 
 .my-search-button
   border-radius: 0
   text-transform: uppercase
-  margin-left: 20px
   font-weight: 600
-  @media #{$medium}
+  margin-top: 10px
+  @media #{$small}
+    margin-top: 0
+    margin-left: 20px
     padding: 0 50px

@@ -1,2 +1,6 @@
+<div class="loader-center" *ngIf="loading">
+  <div class="loader"></div>
+</div>
+
 <app-single-question *ngFor="let question of questions | SearchPipe: _appService.queryString" [question]="question">
 </app-single-question>
