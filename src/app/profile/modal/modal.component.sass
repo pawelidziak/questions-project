@@ -1,4 +1,5 @@
 @import '../../_helpers/variables'
+@import '../../_helpers/mixins'
 
 #closeButton
   position: absolute
@@ -173,7 +174,7 @@
     @media #{$large}
       padding: 0 60px
   .one-info
-    span
+    .accent
       font-weight: 700
       font-size: 1.2rem
       font-style: normal
@@ -197,3 +198,10 @@
   &:hover
     text-decoration: underline
 
+.loader-center
+  @include d-flex
+  @include flex-justify-center
+  padding: 50px 0
+
+.loader
+  @include spinner

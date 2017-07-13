@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {IUser} from '../../_classes/User';
 import {UsersService} from '../../_services/users.service';
+import {QuestionsService} from '../../_services/questions.service';
+import {IQuestion} from '../../_classes/Question';
 
 @Component({
   selector: 'app-modal',
@@ -13,13 +15,19 @@ export class ModalComponent implements OnInit {
   @Input('user') user: IUser;
 
   usersWithSamePeriod: IUser[];
+  hottestDiscussion: IQuestion;
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usersService: UsersService) {
+  loading: boolean;
+
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usersService: UsersService,
+              private _questionsService: QuestionsService) {
   }
 
   ngOnInit() {
     this.usersWithSamePeriod = [];
-    this.getUsersWithSamePeriod(new Date(this.user.memberFor));
+    // this.getUsersWithSamePeriod(new Date(this.user.memberFor));
+    this.getUserConnections(this.user);
+    this.getHottestDiscussion();
   }
 
   private openNextProfileModal(user: IUser) {
@@ -30,16 +38,29 @@ export class ModalComponent implements OnInit {
   }
 
   closeAndOpen(user: IUser) {
-    this.activeModal.close();
+    this.closeModal();
     this.openNextProfileModal(user);
   }
 
-  private getUsersWithSamePeriod(date: Date) {
-    this._usersService.getUsersWithSamePeriod(date)
+  closeModal(): void {
+    this.activeModal.close();
+  }
+
+  private getUserConnections(user: IUser) {
+    this.loading = true;
+    this._usersService.getUserConnections(user)
       .subscribe((data) => {
-        if (this.usersWithSamePeriod.length <= 2) {
-          this.usersWithSamePeriod.push(data);
-        }
+        this.usersWithSamePeriod = data;
+        this.loading = false;
+      });
+  }
+
+  private getHottestDiscussion() {
+    this.loading = true;
+    this._questionsService.getHottestDiscussion()
+      .subscribe((data) => {
+        this.hottestDiscussion = data;
+        this.loading = false;
       });
   }
 }

@@ -5,7 +5,7 @@ import {IUser} from './User';
 import {IResponse} from './Response';
 
 export interface IQuestion {
-  id: string;
+  id: number;
   title: string;
   author: IUser;
   text: string;

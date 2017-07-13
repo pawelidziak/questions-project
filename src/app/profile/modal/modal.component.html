@@ -1,4 +1,8 @@
-<section class="my-modal">
+<div class="loader-center" *ngIf="loading">
+  <div class="loader"></div>
+</div>
+
+<section class="my-modal" *ngIf="!loading">
 
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()" id="closeButton">
     <span aria-hidden="true">&times;</span>
@@ -123,32 +127,38 @@
           </div>
         </div>
 
-        <div class="row hottest-discussion-boxes">
+        <div class="row hottest-discussion-boxes" *ngIf="hottestDiscussion">
           <div class="col-12 ">
             <div class="avatar">
-              <img [src]="user.avatarUrl" class="rounded-circle avatar-image" (click)="closeAndOpen()">
+              <img [src]="hottestDiscussion.author.avatarUrl" class="rounded-circle avatar-image"
+                   (click)="closeAndOpen(hottestDiscussion.author)">
             </div>
 
             <div class="info">
-              <span class="accent-text my-link">Andrew</span>
+              <span class="accent-text my-link" (click)="closeAndOpen(hottestDiscussion.author)">{{hottestDiscussion.author.name}}</span>
               <span class="normal-text">found the guardian article</span>
             </div>
-            <div class="accent-text my-link">
-              Vegan diet to stop diabetes progress
+            <div class="accent-text my-link" (click)="closeModal()" [routerLink]="['', hottestDiscussion.author.name.toLowerCase().split('.').join('-'), hottestDiscussion.id]">
+              {{hottestDiscussion.title}}
             </div>
 
             <div class="row more">
               <div class="col-6 col-lg-3">
-                <div class="one-info"><span>123</span> peers involved</div>
+                <div class="one-info"><span class="accent">{{hottestDiscussion.peers}}</span> peers involved</div>
               </div>
               <div class="col-6 col-lg-3">
-                <div class="one-info"><span>111</span> related discussion</div>
+                <div class="one-info"><span class="accent">{{hottestDiscussion.related}}</span> related discussion</div>
               </div>
               <div class="col-6 col-lg-3">
-                <div class="one-info"><span>155</span> conversations</div>
+                <div class="one-info"><span class="accent">{{hottestDiscussion.conversations}}</span> conversations</div>
               </div>
               <div class="col-6 col-lg-3">
-                <div class="one-info"><span>153</span> upvotes</div>
+                <div class="one-info">
+                  <span class="accent">{{hottestDiscussion.votes | absolutePipe }}</span>
+                  <span *ngIf="hottestDiscussion.votes === 0 ">votes</span>
+                  <span *ngIf="hottestDiscussion.votes > 0 ">upvotes</span>
+                  <span *ngIf="hottestDiscussion.votes < 0 ">downvotes</span>
+                </div>
               </div>
             </div>
           </div>

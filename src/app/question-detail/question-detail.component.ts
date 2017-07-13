@@ -8,7 +8,7 @@ import {IUser} from '../_classes/User';
 import {ModalComponent} from '../profile/modal/modal.component';
 import {AppService} from '../_services/app.service';
 import {VotingService} from '../_services/voting.service';
-import {QuestionsService} from '../_services/questions-list.service';
+import {QuestionsService} from '../_services/questions.service';
 
 @Component({
   selector: 'app-question-detail',
@@ -30,6 +30,8 @@ export class QuestionDetailComponent implements OnInit {
 
   private sub: Subscription;
 
+  loading: boolean;
+
   constructor(private _route: ActivatedRoute, private _questionsService: QuestionsService, private modalService: NgbModal,
               private _appService: AppService, private _votingService: VotingService) {
   }
@@ -39,7 +41,7 @@ export class QuestionDetailComponent implements OnInit {
     this.sub = this._route.params.subscribe(
       params => {
         const id = params['id'];
-        this.getQuestions(id);
+        this.getQuestion(id);
       });
   }
 
@@ -69,23 +71,26 @@ export class QuestionDetailComponent implements OnInit {
     modalRef.componentInstance.user = user;
   }
 
-  private getQuestions(id: string) {
+  private getQuestion(id: number) {
+    this.loading = true;
     this._questionsService.getQuestion(id)
       .subscribe(
         question => {
           this.question = question;
           this.filterResponses();
           this.initVotes();
+          this.loading = false;
         },
         error => {
           this.errorMessage = <any>error;
+          this.loading = false;
         });
   }
 
   private filterResponses(): void {
     this.answersWithComments = [];
     this.answers = 0;
-    for (const res of this.question.responses) {
+    for (const res of this.question.responses.reverse()) {
       this.answersArray = [];
       if (res.type === 'ANSWER') {
         this.answersArray.push(res);

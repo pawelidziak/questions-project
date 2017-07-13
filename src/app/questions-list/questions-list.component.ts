@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IQuestion} from '../_classes/Question';
-import {QuestionsService} from '../_services/questions-list.service';
+import {QuestionsService} from '../_services/questions.service';
 import {AppService} from '../_services/app.service';
 
 @Component({
@@ -12,25 +12,28 @@ export class QuestionsListComponent implements OnInit {
 
   questions: IQuestion[];
   errorMessage: string;
-  test: any[];
+
+  loading: boolean;
 
   constructor(private _questionsService: QuestionsService, public _appService: AppService) {
   }
 
   ngOnInit() {
-    this.getQuestions();
     this._appService.firstView = true;
-    this.test = ['pawel', 'gawel', 'beata'];
+    this.getQuestions();
   }
 
   getQuestions() {
+    this.loading = true;
     this._questionsService.getQuestions()
       .subscribe(
         questions => {
           this.questions = questions;
+          this.loading = false;
         },
         error => {
           this.errorMessage = <any>error;
+          this.loading = false;
         });
   }
 

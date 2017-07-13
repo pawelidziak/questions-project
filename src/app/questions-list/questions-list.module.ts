@@ -9,7 +9,7 @@ import {ProfileModule} from '../profile/profile.module';
 import {RouterModule} from '@angular/router';
 import {NgbModule, NgbTooltipConfig} from '@ng-bootstrap/ng-bootstrap';
 import {PipeModule} from '../_helpers/pipes/pipe.module';
-import {QuestionsService} from '../_services/questions-list.service';
+import {QuestionsService} from '../_services/questions.service';
 import {QuestionDetailModule} from '../question-detail/question-detail.module';
 
 @NgModule({
