@@ -10,17 +10,17 @@ export class MyDatePipe implements PipeTransform {
   transform(input: any) {
     if (input) {
       // date format dd - MM - YYYY (and I changed it to MM - dd - YYY)
-      // const tmp = input.split('.');
+      // const tmp = input.split('-');
       // const tmp1 = tmp[0];
       // tmp[0] = tmp[1];
       // tmp[1] = tmp1;
       // const newDate = tmp[0] + '-' + tmp[1] + '-' + tmp[2];
 
       const now = new Date();
-      const date = new Date(input);
+      const dateTime = new Date(input);
       const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
 
-      const diffDays = (Math.floor((now.getTime() - date.getTime()) / (oneDay)));
+      const diffDays = (Math.floor((now.getTime() - dateTime.getTime()) / (oneDay)));
 
 
       if (diffDays < 7) {
@@ -51,7 +51,7 @@ export class MyDatePipe implements PipeTransform {
       }
 
       // month/s
-      if (diffDays === 30) {
+      if (diffDays > 30 && diffDays < 365) {
         return 'one months';
       }
       if (diffDays > 30) {
