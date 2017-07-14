@@ -4,10 +4,10 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'datePipe'
+  name: 'myDatePipe'
 })
-export class DatePipe implements PipeTransform {
-  transform(input: string) {
+export class MyDatePipe implements PipeTransform {
+  transform(input: any) {
     if (input) {
       // date format dd - MM - YYYY (and I changed it to MM - dd - YYY)
       // const tmp = input.split('.');
