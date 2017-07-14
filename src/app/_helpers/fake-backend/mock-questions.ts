@@ -319,7 +319,7 @@ export const QUESTIONS = [
   },
   {
     'id': 8,
-    'connectedTo': 2,
+    'connectedTo': 4,
     'type': 'COMMENT',
     'author': {
     'id': 5,
