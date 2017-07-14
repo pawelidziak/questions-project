@@ -10,10 +10,9 @@ import {AppService} from '../_services/app.service';
 })
 export class QuestionsListComponent implements OnInit {
 
-  questions: IQuestion[];
   errorMessage: string;
-
   loading: boolean;
+  loadMore: boolean;
 
   constructor(private _questionsService: QuestionsService, public _appService: AppService) {
   }
@@ -28,13 +27,19 @@ export class QuestionsListComponent implements OnInit {
     this._questionsService.getQuestions()
       .subscribe(
         questions => {
-          this.questions = questions;
+          this._appService.questions = questions;
+          this._appService.sliceArray();
           this.loading = false;
         },
         error => {
           this.errorMessage = <any>error;
           this.loading = false;
         });
+  }
+
+  displayAll() {
+    this.loadMore = true;
+    console.log(this.loadMore);
   }
 
 }

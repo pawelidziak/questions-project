@@ -33,12 +33,12 @@
 
       <div class="sort-by" *ngIf="_appService.firstView">
         Sort by:
-        <span class="select-link" (click)="sortBySelected='recent'"
+        <span class="select-link" (click)="sortBySelected='recent'; _appService.sortArray('recent');"
               [ngClass]="{'not-selected': sortBySelected!=='recent', 'selected': sortBySelected==='recent'}">
           recent
         </span>
         or
-        <span class="select-link" (click)="sortBySelected='hot'"
+        <span class="select-link" (click)="sortBySelected='hot'; _appService.sortArray('hot');"
               [ngClass]="{'not-selected': sortBySelected!=='hot', 'selected': sortBySelected==='hot'}">
         hot
         </span>

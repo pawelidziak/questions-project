@@ -2,5 +2,23 @@
   <div class="loader"></div>
 </div>
 
-<app-single-question *ngFor="let question of questions | SearchPipe: _appService.queryString" [question]="question">
-</app-single-question>
+<div *ngIf="!loading">
+
+  <app-single-question *ngFor="let question of _appService.firstThreeQuestions | SearchPipe: _appService.queryString"
+                       [question]="question">
+  </app-single-question>
+
+  <div class="container" *ngIf="!loadMore && _appService.restQuestions?.length">
+    <div class="load-more" (click)="displayAll()">
+      load more questions ({{_appService.restQuestions?.length}})
+    </div>
+  </div>
+
+  <div [hidden]="!loadMore">
+    <app-single-question *ngFor="let question of _appService.restQuestions | SearchPipe: _appService.queryString"
+                         [question]="question">
+    </app-single-question>
+  </div>
+
+
+</div>
