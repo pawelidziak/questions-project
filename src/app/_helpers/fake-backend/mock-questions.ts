@@ -366,8 +366,8 @@ export const QUESTIONS = [
     'title': 'Fourth question for test',
     'text': 'Fourth question text',
     'votes': 2,
-    'related': 1,
-    'peers': 3,
+    'related': 2,
+    'peers': 0,
     'conversations': 0,
     'author': {
       'id': 5,

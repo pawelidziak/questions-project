@@ -20,6 +20,7 @@ export class QuestionsListComponent implements OnInit {
   ngOnInit() {
     this._appService.firstView = true;
     this.getQuestions();
+    this.loadMore = false;
   }
 
   getQuestions() {
@@ -38,7 +39,7 @@ export class QuestionsListComponent implements OnInit {
   }
 
   displayAll() {
-    this.loadMore = true;
+    this.loadMore = !this.loadMore;
     console.log(this.loadMore);
   }
 

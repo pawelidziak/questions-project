@@ -8,17 +8,19 @@
                        [question]="question">
   </app-single-question>
 
-  <div class="container" *ngIf="!loadMore && _appService.restQuestions?.length">
-    <div class="load-more" (click)="displayAll()">
-      load more questions ({{_appService.restQuestions?.length}})
-    </div>
-  </div>
 
-  <div [hidden]="!loadMore">
+
+  <div [ngClass]="{'hidden': !loadMore, 'display': loadMore}">
     <app-single-question *ngFor="let question of _appService.restQuestions | SearchPipe: _appService.queryString"
                          [question]="question">
     </app-single-question>
   </div>
 
+  <div class="container" *ngIf="_appService.restQuestions?.length">
+    <div class="load-more" (click)="displayAll()">
+      <span *ngIf="!loadMore">load more questions ({{_appService.restQuestions?.length}})</span>
+      <span *ngIf="loadMore">load less questions</span>
+    </div>
+  </div>
 
 </div>
