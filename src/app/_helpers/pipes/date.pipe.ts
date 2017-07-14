@@ -43,6 +43,9 @@ export class MyDatePipe implements PipeTransform {
 
       }
       // week/s
+      if (diffDays === 7) {
+        return 'one week';
+      }
       if (diffDays >= 7 && diffDays < 14) {
         return 'one week ' + (Math.floor(diffDays - 7)) + ' days';
       }
@@ -52,19 +55,29 @@ export class MyDatePipe implements PipeTransform {
       }
 
       // month/s
-      if (diffDays > 30 && diffDays < 365) {
-        return 'one months';
+      if (diffDays === 30) {
+        return 'one month';
       }
-      if (diffDays > 30) {
-        return Math.floor(diffDays / 30) + ' months';
+      if (diffDays >= 30 && diffDays < 60) {
+        const months = Math.floor(diffDays / 30);
+        return 'one month ' + (Math.floor(diffDays - 30)) + ' days';
+      }
+      if (diffDays >= 60 && diffDays < 365) {
+        const months = Math.floor(diffDays / 30);
+        return months + ' months ' + (diffDays - Math.floor(months * 30)) + ' days';
       }
 
       // year/s
       if (diffDays === 365) {
-        return 'one year';
+        return 'one month';
       }
-      if (diffDays > 365) {
-        return Math.floor(diffDays / 365) + ' years';
+      if (diffDays >= 365 && diffDays < 730) {
+        const months = Math.floor(diffDays / 30);
+        return 'one year ' + (Math.floor((diffDays - 365) / 30)) + ' months';
+      }
+      if (diffDays >= 730) {
+        const years = Math.floor(diffDays / 365);
+        return years + ' years ' + (diffDays - Math.floor((years - 365) / 30)) + ' months';
       }
 
       const tmp = input.split('/');
