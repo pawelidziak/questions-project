@@ -140,7 +140,7 @@
 
             <div class="info">
               <span class="accent-text my-link" (click)="closeAndOpen(hottestDiscussion.author)">{{hottestDiscussion.author.name}}</span>
-              <span class="normal-text">found the guardian article</span>
+              <span class="normal-text">is asking: </span>
             </div>
             <div class="accent-text my-link" (click)="closeModal()" [routerLink]="['/', hottestDiscussion.author.name.toLowerCase().split('.').join('-'), hottestDiscussion.id]">
               {{hottestDiscussion.title}}

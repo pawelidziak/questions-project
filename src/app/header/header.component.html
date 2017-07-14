@@ -44,7 +44,7 @@
         </span>
       </div>
 
-      <div class="time" *ngIf="!_appService.firstView && _appService.lastTimeDiscussed">
+      <div class="time" *ngIf="!_appService.firstView && _appService.lastTimeDiscussed !== null">
         Last time discussed
         <span placement="bottom" ngbTooltip='{{_appService.lastTimeDiscussed | date: "dd/MM/yyyy"}}' class="select-link selected">{{_appService.lastTimeDiscussed | datePipe }}</span>
       </div>

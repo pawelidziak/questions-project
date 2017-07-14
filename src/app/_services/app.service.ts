@@ -34,7 +34,6 @@ export class AppService {
     this._firstView = value;
   }
 
-
   get lastTimeDiscussed(): Date {
     return this._lastTimeDiscussed;
   }
