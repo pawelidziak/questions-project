@@ -32,7 +32,7 @@
 
 .question-text
   padding-top: 30px
-  padding-bottom: 30px
+  padding-bottom: 50px
   height: 100%
   @include d-flex
   @include flex-align-center
@@ -94,3 +94,18 @@
 .loader
   @include spinner
 
+// error
+.error-center
+  margin-top: 50px
+  @include d-flex
+  @include flex-justify-center
+  button
+    max-width: 200px
+    margin: 0 auto
+    cursor: pointer
+
+.error
+  box-shadow: 0 1px 3px $box-shadow-color
+  background: white
+  padding: 50px 100px
+  text-align: center

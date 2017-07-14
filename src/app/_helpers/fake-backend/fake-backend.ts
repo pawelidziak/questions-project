@@ -27,21 +27,43 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         if (QUESTIONS) {
           connection.mockRespond(new Response(new ResponseOptions({status: 200, body: QUESTIONS})));
         } else {
-          connection.mockError(new Error('No questions.'));
+          connection.mockError(new Error('Questions not found.'));
         }
         return;
       }
 
-      // get one question (by id)
+      // get one question (by id) + check if user exist
       if (connection.request.url.endsWith('/api/question') && connection.request.method === RequestMethod.Post) {
 
-        const id = JSON.parse(connection.request.getBody());
-        const foundQuestion = QUESTIONS.find((question) => question.id === id);
+        const body = JSON.parse(connection.request.getBody());
+        const id = body.id;
+        const userName = body.user;
 
-        if (foundQuestion) {
+        const foundQuestion = QUESTIONS.find((question) => question.id === +id);
+        const foundUser = USERS.find((user) => user.name.toLowerCase().split('-').join('.') === userName);
+        let questionOwner: boolean;
+        if (foundQuestion && foundUser) {
+          questionOwner = foundQuestion.author.name === foundUser.name;
+        } else {
+          questionOwner = false;
+        }
+
+
+        if (foundQuestion && foundUser && questionOwner) {
           connection.mockRespond(new Response(new ResponseOptions({status: 200, body: foundQuestion})));
         } else {
-          connection.mockError(new Error('There is no question with this ID.'));
+          if (!foundUser && !foundQuestion) {
+            connection.mockError(new Error('There is no user with that name and no question with that ID.'));
+          }
+          if (!foundUser) {
+            connection.mockError(new Error('There is no user with that name.'));
+          }
+          if (!foundQuestion) {
+            connection.mockError(new Error('There is no question with that ID.'));
+          }
+          if (!questionOwner) {
+            connection.mockError(new Error('Question with that ID is owned by another user.'));
+          }
         }
         return;
       }
@@ -65,7 +87,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         if (connections) {
           connection.mockRespond(new Response(new ResponseOptions({status: 200, body: connections})));
         } else {
-          connection.mockRespond(new Response(new ResponseOptions({status: 400})));
+          connection.mockError(new Error('User not found.'));
         }
         return;
       }
@@ -87,7 +109,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         if (hottest) {
           connection.mockRespond(new Response(new ResponseOptions({status: 200, body: hottest})));
         } else {
-          connection.mockRespond(new Response(new ResponseOptions({status: 400})));
+          connection.mockError(new Error('Hottest discussion not found.'));
         }
         return;
       }

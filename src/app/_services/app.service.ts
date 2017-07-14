@@ -12,6 +12,7 @@ export class AppService {
 
   private _firstView = true;
   private _queryString: string;
+  private _lastTimeDiscussed: Date;
 
   constructor() {
   }
@@ -31,5 +32,14 @@ export class AppService {
 
   set firstView(value) {
     this._firstView = value;
+  }
+
+
+  get lastTimeDiscussed(): Date {
+    return this._lastTimeDiscussed;
+  }
+
+  set lastTimeDiscussed(value: Date) {
+    this._lastTimeDiscussed = value;
   }
 }

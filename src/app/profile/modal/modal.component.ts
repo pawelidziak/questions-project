@@ -18,6 +18,8 @@ export class ModalComponent implements OnInit {
   hottestDiscussion: IQuestion;
 
   loading: boolean;
+  colorStars: boolean[];
+  normalStars: boolean[];
 
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usersService: UsersService,
               private _questionsService: QuestionsService) {
@@ -28,6 +30,18 @@ export class ModalComponent implements OnInit {
     // this.getUsersWithSamePeriod(new Date(this.user.memberFor));
     this.getUserConnections(this.user);
     this.getHottestDiscussion();
+
+
+    this.colorStars = [];
+    this.normalStars = [];
+
+    for (let i = 0; i < this.user.activityLvl; i++) {
+      this.colorStars.push(true);
+    }
+    for (let j = 0; j < 3 - this.user.activityLvl; j++){
+      this.normalStars.push(true);
+
+    }
   }
 
   private openNextProfileModal(user: IUser) {

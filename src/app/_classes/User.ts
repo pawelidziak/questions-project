@@ -11,4 +11,5 @@ export interface IUser {
   findings: number;
   questions: number;
   avatarUrl: string;
+  activityLvl: number;
 }

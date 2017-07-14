@@ -10,7 +10,7 @@
                 [ngClass]="{'disabled': _appService.firstView}">
           <i class="material-icons">keyboard_arrow_left</i>
         </button>
-        <span>QUESTIONS</span>
+        <span class="logo" [routerLink]="['/main']">QUESTIONS</span>
         <button class="btn btn-sm btn-primary btn-circle">
           <i class="material-icons">add</i>
         </button>
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="sort-by" [hidden]="!_appService.firstView">
+      <div class="sort-by" *ngIf="_appService.firstView">
         Sort by:
         <span class="select-link" (click)="sortBySelected='recent'"
               [ngClass]="{'not-selected': sortBySelected!=='recent', 'selected': sortBySelected==='recent'}">
@@ -44,15 +44,14 @@
         </span>
       </div>
 
-      <div class="time" [hidden]="_appService.firstView">
+      <div class="time" *ngIf="!_appService.firstView && _appService.lastTimeDiscussed">
         Last time discussed
-        <span class="select-link selected">1</span>
-        day ago
+        <span placement="bottom" ngbTooltip='{{_appService.lastTimeDiscussed | date: "dd/MM/yyyy"}}' class="select-link selected">{{_appService.lastTimeDiscussed | datePipe }}</span>
       </div>
     </div> <!-- /first - row -->
 
     <!-- Second row-->
-    <div class="row second-row" [hidden]="!_appService.firstView">
+    <div class="row second-row" *ngIf="_appService.firstView">
       <div class="search">
 
         <form class="input-group">

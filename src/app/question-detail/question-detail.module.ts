@@ -10,10 +10,11 @@ import {CommentsListComponent} from './answer/comments-list/comments-list.compon
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ProfileModule} from '../profile/profile.module';
 import {PipeModule} from '../_helpers/pipes/pipe.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [QuestionDetailComponent, AnswerComponent, CommentComponent, CommentsListComponent],
-  imports: [CommonModule, NgbModule, ProfileModule, PipeModule],
+  imports: [CommonModule, NgbModule, ProfileModule, PipeModule, RouterModule],
   exports: [QuestionDetailComponent],
   providers: [],
 

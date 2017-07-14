@@ -17,25 +17,15 @@ export class UsersService {
   constructor(private _http: Http) {
   }
 
-  // getUsersWithSamePeriod(date: Date): Observable<IUser> {
-  //   return this._http
-  //     .get('././assets/users.json')
-  //     .mergeMap((response: Response) => response.json())
-  //     .filter((user: IUser) => Math.abs(date.getTime() - new Date(user.memberFor).getTime()) <= 604800000)
-  //     .map((person: IUser) => person)
-  //     .catch(this.handleError);
-  // }
-
-  private handleError(error: Response) {
-    console.error(error);
-    const message = `Error status code ${error.status} at ${error.url}`;
-    return Observable.throw(message);
-  }
-
   getUserConnections(user: IUser): Observable<IUser[]> {
     return this._http
       .post('/api/user-connection', user)
-      .map((res: Response) => <IUser[]> res.json());
+      .map((res: Response) => <IUser[]> res.json())
+      .catch(this.handleError);
+
+  }
+  private handleError(error: any) {
+    return Observable.throw(error);
   }
 
 }

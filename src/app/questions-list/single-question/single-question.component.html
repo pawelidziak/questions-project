@@ -13,18 +13,18 @@
               <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
               <span class="subtitle">is asking: </span>
               <span class="question"
-                    [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
+                    [routerLink]="['/', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
               </span>
             </div>
           </div>
 
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-10">
 
             <div class="header-title hidden-md-down">
               <span class="author" (click)="openProfileModal(question.author)">{{question.author.name}}</span>
               <span class="subtitle">is asking: </span> <br>
               <span class="question"
-                    [routerLink]="['', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
+                    [routerLink]="['/', question.author.name.toLowerCase().split('.').join('-'), question.id]">{{question.title}}
               </span>
             </div>
 

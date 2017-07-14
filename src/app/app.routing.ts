@@ -5,6 +5,7 @@ import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {QuestionsListComponent} from './questions-list/questions-list.component';
 import {QuestionDetailComponent} from './question-detail/question-detail.component';
+import {Page404Component} from './page404/page404.component';
 
 const routes: Routes = [
   {
@@ -12,12 +13,21 @@ const routes: Routes = [
     component: QuestionsListComponent
   },
   {
-    path: ':user:/:id',
+    path: ':user/:id',
     component: QuestionDetailComponent
   },
   {
+    path: '404',
+    component: Page404Component
+  },
+  {
+    path: '',
+    redirectTo: '/main',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
-    redirectTo: 'main'
+    redirectTo: '/404'
   }
 ];
 

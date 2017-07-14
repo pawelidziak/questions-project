@@ -11,17 +11,21 @@ import {PipeModule} from './_helpers/pipes/pipe.module';
 import {AppService} from './_services/app.service';
 import {MockBackend} from '@angular/http/testing';
 import {fakeBackendProvider} from './_helpers/fake-backend/fake-backend';
+import { Page404Component } from './page404/page404.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    Page404Component
   ],
   imports: [
     HttpModule,
     BrowserModule,
     routing,
     RouterModule,
+    NgbModule,
     QuestionsListModule,
     FormsModule,
     PipeModule

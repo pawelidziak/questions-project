@@ -41,13 +41,16 @@ export class QuestionDetailComponent implements OnInit {
     this.sub = this._route.params.subscribe(
       params => {
         const id = params['id'];
-        this.getQuestion(id);
+        const user = params['user'];
+        this.getQuestion(id, user);
       });
   }
 
   initVotes() {
-    this._votingService.votes = this.question.votes;
-    this._votingService.orgVotes = this.question.votes;
+    if (this.question) {
+      this._votingService.votes = this.question.votes;
+      this._votingService.orgVotes = this.question.votes;
+    }
   }
 
   voteUp() {
@@ -71,14 +74,15 @@ export class QuestionDetailComponent implements OnInit {
     modalRef.componentInstance.user = user;
   }
 
-  private getQuestion(id: number) {
+  private getQuestion(id: number, user: string) {
     this.loading = true;
-    this._questionsService.getQuestion(id)
+    this._questionsService.getQuestion(id, user)
       .subscribe(
         question => {
           this.question = question;
           this.filterResponses();
           this.initVotes();
+          this.findLastTimeDiscussed();
           this.loading = false;
         },
         error => {
@@ -87,21 +91,45 @@ export class QuestionDetailComponent implements OnInit {
         });
   }
 
-  private filterResponses(): void {
-    this.answersWithComments = [];
-    this.answers = 0;
-    for (const res of this.question.responses.reverse()) {
-      this.answersArray = [];
-      if (res.type === 'ANSWER') {
-        this.answersArray.push(res);
-        this.answers++;
-        for (const res1 of this.question.responses) {
-          if (res1.type === 'COMMENT' && res1.connectedTo === res.id) {
-            this.answersArray.push(res1);
-          }
+  private findLastTimeDiscussed() {
+
+    if (this.question.responses.length > 0) {
+      let time = new Date(this.question.responses[0].date).getTime();
+      let lastDate = new Date(this.question.responses[0].date);
+
+      for (const res of this.question.responses) {
+        const tmp = new Date(res.date).getTime();
+        if (tmp > time) {
+          time = tmp;
+          lastDate = new Date(res.date);
         }
-        this.answersWithComments.push(this.answersArray);
+      }
+
+      this._appService.lastTimeDiscussed = lastDate;
+    } else {
+      this._appService.lastTimeDiscussed = null;
+    }
+  }
+
+  private filterResponses(): void {
+    if (this.question) {
+      this.answersWithComments = [];
+      this.answers = 0;
+      for (const res of this.question.responses.reverse()) {
+        this.answersArray = [];
+        if (res.type === 'ANSWER') {
+          this.answersArray.push(res);
+          this.answers++;
+          for (const res1 of this.question.responses) {
+            if (res1.type === 'COMMENT' && res1.connectedTo === res.id) {
+              this.answersArray.push(res1);
+            }
+          }
+          this.answersWithComments.push(this.answersArray);
+        }
       }
     }
   }
+
+
 }

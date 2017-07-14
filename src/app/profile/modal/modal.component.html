@@ -30,7 +30,11 @@
           <span ngbTooltip='{{user.lastSeen | date: "dd/MM/yyyy"}}' class="header-response">{{user.lastSeen | datePipe}}</span>
         </div>
         <div class="col-12 col-lg-4">
-          <span class="header-text">activity level</span>
+          <div class="activity">
+            <span>activity level</span>
+            <i class="star material-icons colored" *ngFor="let number of colorStars">stars</i>
+            <i class="star material-icons" *ngFor="let number of normalStars">stars</i>
+          </div>
         </div>
       </div>
     </div>
@@ -138,7 +142,7 @@
               <span class="accent-text my-link" (click)="closeAndOpen(hottestDiscussion.author)">{{hottestDiscussion.author.name}}</span>
               <span class="normal-text">found the guardian article</span>
             </div>
-            <div class="accent-text my-link" (click)="closeModal()" [routerLink]="['', hottestDiscussion.author.name.toLowerCase().split('.').join('-'), hottestDiscussion.id]">
+            <div class="accent-text my-link" (click)="closeModal()" [routerLink]="['/', hottestDiscussion.author.name.toLowerCase().split('.').join('-'), hottestDiscussion.id]">
               {{hottestDiscussion.title}}
             </div>
 

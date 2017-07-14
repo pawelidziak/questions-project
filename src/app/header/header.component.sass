@@ -1,7 +1,8 @@
 @import '../_helpers/variables'
 @import '../_helpers/mixins'
+
 .my-header
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px $box-shadow-color
   background: white
   padding: 10px 0
   text-align: center
@@ -11,6 +12,14 @@
 .container
   padding: 0
 
+.logo
+  font-size: 1.5rem
+  font-weight: 700
+  text-transform: uppercase
+  cursor: pointer
+  transition: transform 200ms ease-in-out
+  &:hover
+    transform: scale(1.05)
 .first-row
   @include d-flex
   @include flex-align-center
@@ -19,9 +28,6 @@
   flex-direction: column
   @media #{$medium}
     flex-direction: row
-//@media #{$medium}
-//  margin-bottom: 20px
-//padding-right: 15px
 
 .second-row
   @include d-flex
@@ -31,10 +37,7 @@
 .title
   @include d-flex
   @include flex-align-center
-  span
-    font-size: 1.5rem
-    font-weight: 700
-    text-transform: uppercase
+
   button
     margin: 0 20px
 
@@ -61,8 +64,6 @@
   font-weight: 600
   padding: 7px
   cursor: pointer
-  &:last-child
-    padding-right: 0
   &:hover
     text-decoration: underline
   &.not-selected
@@ -85,8 +86,14 @@
   background: transparent
   border: 1px solid $box-shadow-color
   color: $box-shadow-color
+  &:hover
+    border: 1px solid black
+    color: black
   &.disabled
     cursor: not-allowed
+    border: 1px solid $box-shadow-color
+    color: $box-shadow-color
+
 
 .search
   margin: 20px 0 10px 0

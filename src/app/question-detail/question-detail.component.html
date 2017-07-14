@@ -17,7 +17,6 @@
         </div>
       </div>
 
-
       <div class="col-12 col-lg-10">
 
         <div class="header-title hidden-md-down">
@@ -34,7 +33,6 @@
       </div>
 
     </div>
-
 
     <div class="row second-row">
       <!-- empty, colorized column-->
@@ -60,8 +58,10 @@
           <span *ngIf="question.votes > 0 ">upvotes</span>
           <span *ngIf="question.votes < 0 ">downvotes</span>
           <div class="arrows">
-            <fieldset [disabled]="disVoteUp" class="arrow-top" (click)="voteUp()" [ngClass]="{'disabled': disVoteUp}"></fieldset>
-            <fieldset [disabled]="disVoteDown" class="arrow-bottom" (click)="voteDown()" [ngClass]="{'disabled': disVoteDown}"></fieldset>
+            <fieldset [disabled]="disVoteUp" class="arrow-top" (click)="voteUp()"
+                      [ngClass]="{'disabled': disVoteUp}"></fieldset>
+            <fieldset [disabled]="disVoteDown" class="arrow-bottom" (click)="voteDown()"
+                      [ngClass]="{'disabled': disVoteDown}"></fieldset>
           </div>
         </div>
 
@@ -86,5 +86,10 @@
 
 </ng-container> <!-- /container -->
 
-
+<div class="error-center" *ngIf="errorMessage">
+  <div class="error">
+    <div class="alert alert-danger" role="alert">{{errorMessage}}</div>
+    <button class="btn btn-primary" [routerLink]="['/main']">Go to main page</button>
+  </div>
+</div>
 

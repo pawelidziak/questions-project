@@ -59,8 +59,13 @@ export class DatePipe implements PipeTransform {
       }
 
       // year/s
+      if (diffDays === 365) {
+        return 'one year';
+      }
+      if (diffDays > 365) {
+        return Math.floor(diffDays / 365) + ' years';
+      }
 
-      console.log('hm');
       return input;
     }
   }

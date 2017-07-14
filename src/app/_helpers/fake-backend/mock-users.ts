@@ -5,68 +5,74 @@
 export const USERS = [
   {
     'id': 1,
-    'name': 'Mateusz',
+    'name': 'Eva',
     'memberFor': '07.10.2017',
-    'lastSeen': '07.09.2017',
+    'lastSeen': '07.11.2017',
     'peers': 5,
     'discussions': 6,
     'findings': 7,
     'questions': 8,
-    'avatarUrl': 'assets/avatars/1.png'
+    'avatarUrl': 'assets/avatars/1.png',
+    'activityLvl': 2
   },
   {
     'id': 2,
-    'name': 'Pawel',
+    'name': 'Andrew',
     'memberFor': '07.11.2017',
-    'lastSeen': '07.09.2017',
-    'peers': 5,
-    'discussions': 6,
-    'findings': 7,
+    'lastSeen': '07.14.2017',
+    'peers': 9,
+    'discussions': 10,
+    'findings': 11,
     'questions': 8,
-    'avatarUrl': 'assets/avatars/2.png'
+    'avatarUrl': 'assets/avatars/2.png',
+    'activityLvl': 1
   },
   {
     'id': 3,
-    'name': 'Beata',
+    'name': 'Joseph',
     'memberFor': '07.12.2017',
-    'lastSeen': '07.09.2017',
+    'lastSeen': '07.13.2017',
     'peers': 5,
-    'discussions': 6,
+    'discussions': 7,
     'findings': 7,
-    'questions': 8,
-    'avatarUrl': 'assets/avatars/3.png'
+    'questions': 2,
+    'avatarUrl': 'assets/avatars/3.png',
+    'activityLvl': 2
   },
   {
     'id': 4,
-    'name': 'Jakub',
+    'name': 'Johny',
     'memberFor': '07.13.2017',
-    'lastSeen': '07.09.2017',
-    'peers': 5,
-    'discussions': 6,
-    'findings': 7,
-    'questions': 8,
-    'avatarUrl': 'assets/avatars/4.png'
+    'lastSeen': '07.14.2017',
+    'peers': 3,
+    'discussions': 1,
+    'findings': 2,
+    'questions': 2,
+    'avatarUrl': 'assets/avatars/4.png',
+    'activityLvl': 3
   },
   {
     'id': 5,
-    'name': 'Piotr',
-    'memberFor': '07.13.2017',
+    'name': 'Beny',
+    'memberFor': '07.02.2017',
     'lastSeen': '07.09.2017',
-    'peers': 5,
-    'discussions': 6,
-    'findings': 7,
-    'questions': 8,
-    'avatarUrl': 'assets/avatars/5.png'
+    'peers': 3,
+    'discussions': 10,
+    'findings': 5,
+    'questions': 2,
+    'avatarUrl': 'assets/avatars/5.png',
+    'activityLvl': 2
   },
   {
     'id': 6,
-    'name': 'Robot',
-    'memberFor': '06.01.2017',
-    'lastSeen': '07.09.2017',
-    'peers': 5,
-    'discussions': 6,
+    'name': 'Michael',
+    'memberFor': '07.20.2017',
+    'lastSeen': '07.21.2017',
+    'peers': 6,
+    'discussions': 7,
     'findings': 7,
-    'questions': 8,
-    'avatarUrl': 'assets/avatars/5.png'
+    'questions': 9,
+    'avatarUrl': 'assets/avatars/6.png',
+    'activityLvl': 1
   }
 ];
