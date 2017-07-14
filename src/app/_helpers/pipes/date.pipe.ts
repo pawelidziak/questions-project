@@ -43,11 +43,12 @@ export class MyDatePipe implements PipeTransform {
 
       }
       // week/s
-      if (diffDays === 7) {
-        return 'one week';
+      if (diffDays >= 7 && diffDays < 14) {
+        return 'one week ' + (Math.floor(diffDays - 7)) + ' days';
       }
-      if (diffDays > 7 && diffDays < 30) {
-        return Math.floor(diffDays / 7) + ' weeks';
+      if (diffDays >= 14 && diffDays < 30) {
+        const weeks = Math.floor(diffDays / 7);
+        return weeks + ' weeks ' + (diffDays - Math.floor(weeks * 7)) + ' days';
       }
 
       // month/s
@@ -66,7 +67,9 @@ export class MyDatePipe implements PipeTransform {
         return Math.floor(diffDays / 365) + ' years';
       }
 
-      return input;
+      const tmp = input.split('/');
+      const newDate = tmp[1] + '/' + tmp[0] + '/' + tmp[2];
+      return newDate;
     }
   }
 }

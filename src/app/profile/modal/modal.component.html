@@ -23,7 +23,7 @@
       <div class="row my-header-boxes">
         <div class="col-12 col-lg-4">
           <span class="header-text">member for</span>
-          <span [ngbTooltip]="user.lastSeen | date: 'dd/MM/yyyy'" class="header-response">{{user.memberFor | myDatePipe}}</span>
+          <span [ngbTooltip]="user.memberFor | date: 'dd/MM/yyyy'" class="header-response">{{user.memberFor | myDatePipe}}</span>
         </div>
         <div class="col-12 col-lg-4">
           <span class="header-text">last seen</span>

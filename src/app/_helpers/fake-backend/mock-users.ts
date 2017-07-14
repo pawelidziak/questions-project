@@ -53,8 +53,8 @@ export const USERS = [
   },
   {
     'id': 5,
-    'name': 'Beny',
-    'memberFor': '07/02/2017',
+    'name': 'Ben',
+    'memberFor': '07/04/2017',
     'lastSeen': '07/09/2017',
     'peers': 3,
     'discussions': 10,
@@ -66,8 +66,8 @@ export const USERS = [
   {
     'id': 6,
     'name': 'Michael',
-    'memberFor': '07/20/2017',
-    'lastSeen': '07/21/2017',
+    'memberFor': '06/25/2017',
+    'lastSeen': '07/15/2017',
     'peers': 6,
     'discussions': 7,
     'findings': 7,
