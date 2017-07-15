@@ -1,28 +1,13 @@
 # QuestionsProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+Angular 4 with TypeScript, Bootstrap and Material Icons.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Some comments: 
+  - 'Hot' sort is sorting by maximum 'conversations' of the question (the hottest discussion in modal too)
+  - 'Recent' sort is sorting by minimum 'id' of the question
+  - Most of datas are dynamic, loaded from mocked data (prepared JSON files)
+  - User connections in modal ('who joined the platform that same time'): all users are filtered but only 3 are selected (if there is max 7 days difference between register dates)
+  - All dates in project are using custom pipe for display (some dates may be incorrect - error during creating file (mock-questions.ts) - for instance: date of answer can be earlier than author register date)
+  - Each question may have an answer, each answer may have comment
+  - Voting works in display, real method should connect with back-end and modify data in database
+  - Each question (detailed) is display in different route: .../author(user)/id-question. The correctness of the data is checked in fake-backed.ts file and if author or id-question doesn't exist, an exception is returned
